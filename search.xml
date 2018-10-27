@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Open GL 基本函数二]]></title>
+    <url>%2F2018%2F10%2F27%2FOpen-GL-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%BA%8C%2F</url>
+    <content type="text"><![CDATA[Open GL 基本函数二 1void glClearColor(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha); 参数分别是红，绿，蓝，不透明度，取值范围在[0,1]，仅仅只是执行设定颜色，不执行清除工作，仅仅是为了glClear()函数做准备 1glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT) 参数可为一个或多个，若为多个，用’|’隔开GL_COLOR_BUFFER_BIT当前可写的颜色缓冲GL_DEPTH_BUFFER_BIT深度缓冲GL_ACCUM_BUFFER_BIT累积缓冲GL_STENCIL_BUFFER_BIT模板缓冲 如果两个函数结合一起用，即12glClearColor(1.0, 1.0, 1.0, 1.0); //白色glClear(GL_COLOR_BUFFER_BIT);表示把背景设置成蓝色 1void glPointSize(GLfloat size) 设置绘制时点的大小，大小单位为像素，默认值为1.0，很明显要大于0.0f 1void glBegin(GLenum mode) mode表示创建元素的类型，有如下几个类型GL_POINTS 单个顶点集GL_LINES 多组双顶点线段GL_POLYGON 单个简单填充凸多边形GL_TRAINGLES 多组独立填充三角形GL_QUADS 多组独立填充四边形GL_LINE_STRIP 不闭合折线GL_LINE_LOOP 闭合折线GL_TRAINGLE_STRIP 线型连续填充三角形串GL_TRAINGLE_FAN 扇形连续填充三角形串GL_QUAD_STRIP 连续填充四边形串 1void glEnd(void) 一个几何图形绘制的结束 1glVertex2f(float,float) 设定点的坐标，f表示参数是浮点数类似的还有：glVertex2dglVertex2fglVertex3fglVertex3fv字母表示参数的类型1.s表示16位整数（OpenGL中将这个类型定义为GLshort），2.i表示32位整数（OpenGL中将这个类型定义为GLint和GLsizei），3.f表示32位浮点数（OpenGL中将这个类型定义为GLfloat和GLclampf），4.d表示64位浮点数（OpenGL中将这个类型定义为GLdouble和GLclampd）。5.v表示传递的几个参数将使用指针的方式。 1glViewport(GLint x,GLint y,GLsizei width,GLsizei height) x，y 以像素为单位，指定了视口的左下角位置。width，height 表示这个视口矩形的宽度和高度，根据窗口的实时变化重绘窗口。]]></content>
+      <categories>
+        <category>OpenGL</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Open GL 基本函数一]]></title>
     <url>%2F2018%2F10%2F27%2FOpen-GL-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%B8%80%2F</url>
     <content type="text"><![CDATA[Open-GL 基本函数一转战图形学（其实为了应付考试。。。，再不复习就挂科了。。。） 1void glutInit(int* argc,char** argv) 这个函数用来初始化GLUT，此时main函数也有对应的参数：1int main(int argc,char* argv[])glutInit是从main函数获取参数 1void glutInitWindowSize(int width,int height) 该函数用于初始化窗口的大小 1void glutInitWindowPosition(int x,int y) 该函数用来初始化窗口左上角是什么，以像素为单位 1void glutInitDisplayMode(unsigned int mode) 显示模式，可供选择的参数：1.GLUT_RGBA：当未指明GLUT-RGBA或GLUT-INDEX时，是默认使用的模式。表明欲建立RGBA模式的窗口。2.GLUT_RGB：与GLUT-RGBA作用相同。3.GLUT_INDEX：指明为颜色索引模式。4.GLUT_SINGLE：只使用单缓存5.GLUT_DOUBLE：使用双缓存。以避免把计算机作图的过程都表现出来，或者为了平滑地实现动画。6.GLUT_ACCUM：让窗口使用累加的缓存。7.GLUT_ALPHA：让颜色缓冲区使用alpha组件。8.GLUT_DEPTH：使用深度缓存。9.GLUT_STENCIL：使用模板缓存。10.GLUT_MULTISAMPLE：让窗口支持多例程。11.GLUT_STEREO：使窗口支持立体。12.GLUT_LUMINACE:luminance是亮度的意思。但是很遗憾，在多数OpenGL平台上，不被支持。 1glColor3f(float, float, float) 好吧，他有三个浮点参数，但是不清楚是什么（其实是懒得翻他headfile了）其中0.0表示不使用颜色成分，1.0表示使用颜色最大值具体参数对应的颜色如下12345678glColor3f(0.0, 0.0, 0.0); --&gt; 黑色 glColor3f(1.0, 0.0, 0.0); --&gt; 红色 glColor3f(0.0, 1.0, 0.0); --&gt; 绿色 glColor3f(0.0, 0.0, 1.0); --&gt; 蓝色 glColor3f(1.0, 1.0, 0.0); --&gt; 黄色 glColor3f(1.0, 0.0, 1.0); --&gt; 品红色 glColor3f(0.0, 1.0, 1.0); --&gt; 青色 glColor3f(1.0, 1.0, 1.0); --&gt; 白色 这个函数有个需要注意的是，如果在glBegin()与glEnd()连续调用多个这个函数，只显示最后一个]]></content>

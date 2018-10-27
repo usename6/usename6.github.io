@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-27T13:05:44.544Z</updated>
+  <updated>2018-10-27T13:57:49.296Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Open GL 基本函数二</title>
+    <link href="http://yoursite.com/2018/10/27/Open-GL-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%BA%8C/"/>
+    <id>http://yoursite.com/2018/10/27/Open-GL-基本函数二/</id>
+    <published>2018-10-27T13:31:31.000Z</published>
+    <updated>2018-10-27T13:57:49.296Z</updated>
+    
+    <content type="html"><![CDATA[<p>Open GL 基本函数二</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glClearColor</span><span class="params">(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha)</span></span>;</span><br></pre></td></tr></table></figure><p>参数分别是红，绿，蓝，不透明度，取值范围在[0,1]，仅仅只是执行设定颜色，不执行清除工作，仅仅是为了glClear()函数做准备</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)</span><br></pre></td></tr></table></figure><p>参数可为一个或多个，若为多个，用’|’隔开<br>GL_COLOR_BUFFER_BIT<br>当前可写的颜色缓冲<br>GL_DEPTH_BUFFER_BIT<br>深度缓冲<br>GL_ACCUM_BUFFER_BIT<br>累积缓冲<br>GL_STENCIL_BUFFER_BIT<br>模板缓冲</p><p>如果两个函数结合一起用，即<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glClearColor(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>);  <span class="comment">//白色</span></span><br><span class="line">glClear(GL_COLOR_BUFFER_BIT);</span><br></pre></td></tr></table></figure><br>表示把背景设置成蓝色</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glPointSize</span><span class="params">(GLfloat size)</span></span></span><br></pre></td></tr></table></figure><p>设置绘制时点的大小，大小单位为像素，默认值为1.0，很明显要大于0.0f</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glBegin</span><span class="params">(GLenum mode)</span></span></span><br></pre></td></tr></table></figure><p>mode表示创建元素的类型，有如下几个类型<br>GL_POINTS 单个顶点集<br>GL_LINES 多组双顶点线段<br>GL_POLYGON 单个简单填充凸多边形<br>GL_TRAINGLES 多组独立填充三角形<br>GL_QUADS 多组独立填充四边形<br>GL_LINE_STRIP 不闭合折线<br>GL_LINE_LOOP 闭合折线<br>GL_TRAINGLE_STRIP 线型连续填充三角形串<br>GL_TRAINGLE_FAN 扇形连续填充三角形串<br>GL_QUAD_STRIP 连续填充四边形串</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glEnd</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br></pre></td></tr></table></figure><p>一个几何图形绘制的结束</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glVertex2f(<span class="keyword">float</span>,<span class="keyword">float</span>)</span><br></pre></td></tr></table></figure><p>设定点的坐标，f表示参数是浮点数<br>类似的还有：<br>glVertex2d<br>glVertex2f<br>glVertex3f<br>glVertex3fv<br>字母表示参数的类型<br>1.s表示16位整数（OpenGL中将这个类型定义为GLshort），<br>2.i表示32位整数（OpenGL中将这个类型定义为GLint和GLsizei），<br>3.f表示32位浮点数（OpenGL中将这个类型定义为GLfloat和GLclampf），<br>4.d表示64位浮点数（OpenGL中将这个类型定义为GLdouble和GLclampd）。<br>5.v表示传递的几个参数将使用指针的方式。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glViewport(GLint x,GLint y,GLsizei width,GLsizei height)</span><br></pre></td></tr></table></figure><p>x，y 以像素为单位，指定了视口的左下角位置。<br>width，height 表示这个视口矩形的宽度和高度，根据窗口的实时变化重绘窗口。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Open GL 基本函数二&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;cod
+      
+    
+    </summary>
+    
+      <category term="OpenGL" scheme="http://yoursite.com/categories/OpenGL/"/>
+    
+    
+      <category term="OpenGL" scheme="http://yoursite.com/tags/OpenGL/"/>
+    
+  </entry>
   
   <entry>
     <title>Open GL 基本函数一</title>

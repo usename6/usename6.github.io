@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[DDA算法]]></title>
+    <url>%2F2018%2F10%2F27%2FDDA%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[今日连更四篇，也是很肛（沉迷博客无法自拔）。。。 原理：假设直线为：$ y = kx + b $分两种情况讨论1.当$ | k | &lt; = 1 $则设$x_{i+1} = x_{i} + 1$那么$y_{i+1} = y_{i} + k$2.当$ | k | &gt; = 1 $则将直线方程转化为$ x = (1/k)y - b/k $则设$y_{i+1} = y_{i} + 1$那么$x_{i+1} = x_{i} + 1/k$1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980#include &lt;GL/glut.h&gt;#include &lt;cmath&gt;#include &lt;cstdio&gt;#include &lt;algorithm&gt;void DDA_Line(int x1,int y1,int x2,int y2) //描绘点在(x1,y1)到(x2,y2)之间的线段&#123; float k; //表示斜率 float t; //在这之间像素点有多少个 float x; //起始点x坐标 float y; //起始点y坐标 float dx=x2-x1; //x方向的增量 float dy=y2-y1; //y方向的增量 bool tag=false; //表示斜率的绝对值是大于还是小于1,大于1为true,小于1为false if(abs(dx)&gt;=abs(dy)) &#123; k=dy/dx; t=dx; tag=true; &#125; else &#123; k=dx/dy; t=dy; tag=false; &#125; x=x1; y=y1; for(int i=0;i&lt;=t;i++) //枚举这之间的像素点 &#123; glPointSize(1.0); glBegin(GL_POINTS); if(tag) &#123; glVertex2f(x,int(y+0.5)); glEnd(); y=y+k; x++; &#125; else &#123; glVertex2f(int(x+0.5),y); glEnd(); x=x+k; y++; &#125; &#125;&#125;void display()&#123; glClearColor(1.0, 1.0, 1.0, 1.0); //白色 glClear(GL_COLOR_BUFFER_BIT); //设置背景为白色 glViewport(0,0,500,500); DDA_Line(0,500,500,0); DDA_Line(0,0,500,600); DDA_Line(250,0,250,500); DDA_Line(0,250,500,250); glFlush();&#125;int main(int argc,char **argv)&#123; glutInit(&amp;argc,argv); glutInitDisplayMode(GLUT_SINGLE|GLUT_RED); glutInitWindowSize(500,500); glutInitWindowPosition(0,0); glutCreateWindow("DDA_Line"); glutDisplayFunc(display); //调用里面函数的绘图函数（当然是你定义） glColor3f(0.0, 1.0, 1.0); gluOrtho2D(0.0, 500.0, 0.0, 500.0); glutMainLoop(); return 0;&#125;]]></content>
+      <categories>
+        <category>OpenGL</category>
+        <category>图形学</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+        <tag>图形学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Open GL 基本函数二]]></title>
     <url>%2F2018%2F10%2F27%2FOpen-GL-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%BA%8C%2F</url>
     <content type="text"><![CDATA[Open GL 基本函数二 1void glClearColor(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha); 参数分别是红，绿，蓝，不透明度，取值范围在[0,1]，仅仅只是执行设定颜色，不执行清除工作，仅仅是为了glClear()函数做准备 1glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT) 参数可为一个或多个，若为多个，用’|’隔开GL_COLOR_BUFFER_BIT当前可写的颜色缓冲GL_DEPTH_BUFFER_BIT深度缓冲GL_ACCUM_BUFFER_BIT累积缓冲GL_STENCIL_BUFFER_BIT模板缓冲 如果两个函数结合一起用，即12glClearColor(1.0, 1.0, 1.0, 1.0); //白色glClear(GL_COLOR_BUFFER_BIT);表示把背景设置成蓝色 1void glPointSize(GLfloat size) 设置绘制时点的大小，大小单位为像素，默认值为1.0，很明显要大于0.0f 1void glBegin(GLenum mode) mode表示创建元素的类型，有如下几个类型GL_POINTS 单个顶点集GL_LINES 多组双顶点线段GL_POLYGON 单个简单填充凸多边形GL_TRAINGLES 多组独立填充三角形GL_QUADS 多组独立填充四边形GL_LINE_STRIP 不闭合折线GL_LINE_LOOP 闭合折线GL_TRAINGLE_STRIP 线型连续填充三角形串GL_TRAINGLE_FAN 扇形连续填充三角形串GL_QUAD_STRIP 连续填充四边形串 1void glEnd(void) 一个几何图形绘制的结束 1glVertex2f(float,float) 设定点的坐标，f表示参数是浮点数类似的还有：glVertex2dglVertex2fglVertex3fglVertex3fv字母表示参数的类型1.s表示16位整数（OpenGL中将这个类型定义为GLshort），2.i表示32位整数（OpenGL中将这个类型定义为GLint和GLsizei），3.f表示32位浮点数（OpenGL中将这个类型定义为GLfloat和GLclampf），4.d表示64位浮点数（OpenGL中将这个类型定义为GLdouble和GLclampd）。5.v表示传递的几个参数将使用指针的方式。 1glViewport(GLint x,GLint y,GLsizei width,GLsizei height) x，y 以像素为单位，指定了视口的左下角位置。width，height 表示这个视口矩形的宽度和高度，根据窗口的实时变化重绘窗口。]]></content>

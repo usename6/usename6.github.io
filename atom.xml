@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-27T03:10:23.244Z</updated>
+  <updated>2018-10-27T13:05:44.544Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Open GL 基本函数一</title>
+    <link href="http://yoursite.com/2018/10/27/Open-GL-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%B8%80/"/>
+    <id>http://yoursite.com/2018/10/27/Open-GL-基本函数一/</id>
+    <published>2018-10-27T12:51:38.000Z</published>
+    <updated>2018-10-27T13:05:44.544Z</updated>
+    
+    <content type="html"><![CDATA[<p>Open-GL 基本函数一<br>转战图形学（其实为了应付考试。。。，再不复习就挂科了。。。）</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glutInit</span><span class="params">(<span class="keyword">int</span>* argc,<span class="keyword">char</span>** argv)</span> </span></span><br></pre></td></tr></table></figure><p>这个函数用来初始化GLUT，此时main函数也有对应的参数：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span></span><br></pre></td></tr></table></figure><br>glutInit是从main函数获取参数</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glutInitWindowSize</span><span class="params">(<span class="keyword">int</span> width,<span class="keyword">int</span> height)</span></span></span><br></pre></td></tr></table></figure><p>该函数用于初始化窗口的大小</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glutInitWindowPosition</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></span><br></pre></td></tr></table></figure><p>该函数用来初始化窗口左上角是什么，以像素为单位</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glutInitDisplayMode</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> mode)</span></span></span><br></pre></td></tr></table></figure><p>显示模式，可供选择的参数：<br>1.GLUT_RGBA：当未指明GLUT-RGBA或GLUT-INDEX时，是默认使用的模式。表明欲建立RGBA模式的窗口。<br>2.GLUT_RGB：与GLUT-RGBA作用相同。<br>3.GLUT_INDEX：指明为颜色索引模式。<br>4.GLUT_SINGLE：只使用单缓存<br>5.GLUT_DOUBLE：使用双缓存。以避免把计算机作图的过程都表现出来，或者为了平滑地实现动画。<br>6.GLUT_ACCUM：让窗口使用累加的缓存。<br>7.GLUT_ALPHA：让颜色缓冲区使用alpha组件。<br>8.GLUT_DEPTH：使用深度缓存。<br>9.GLUT_STENCIL：使用模板缓存。<br>10.GLUT_MULTISAMPLE：让窗口支持多例程。<br>11.GLUT_STEREO：使窗口支持立体。<br>12.GLUT_LUMINACE:luminance是亮度的意思。但是很遗憾，在多数OpenGL平台上，不被支持。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glColor3f(<span class="keyword">float</span>, <span class="keyword">float</span>, <span class="keyword">float</span>)</span><br></pre></td></tr></table></figure><p>好吧，他有三个浮点参数，但是不清楚是什么（其实是懒得翻他headfile了）<br>其中0.0表示不使用颜色成分，1.0表示使用颜色最大值<br>具体参数对应的颜色如下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">glColor3f(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>);  --&gt; 黑色  </span><br><span class="line">glColor3f(<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>);  --&gt; 红色  </span><br><span class="line">glColor3f(<span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">0.0</span>);  --&gt; 绿色  </span><br><span class="line">glColor3f(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span>);  --&gt; 蓝色  </span><br><span class="line">glColor3f(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">0.0</span>);  --&gt; 黄色  </span><br><span class="line">glColor3f(<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span>);  --&gt; 品红色  </span><br><span class="line">glColor3f(<span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>);  --&gt; 青色  </span><br><span class="line">glColor3f(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>);  --&gt; 白色  </span><br></pre></td></tr></table></figure><br>这个函数有个需要注意的是，如果在glBegin()与glEnd()连续调用多个这个函数，只显示最后一个</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Open-GL 基本函数一&lt;br&gt;转战图形学（其实为了应付考试。。。，再不复习就挂科了。。。）&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/
+      
+    
+    </summary>
+    
+      <category term="OpenGL" scheme="http://yoursite.com/categories/OpenGL/"/>
+    
+    
+      <category term="OpenGL" scheme="http://yoursite.com/tags/OpenGL/"/>
+    
+  </entry>
   
   <entry>
     <title>Educational Codeforces Round 53 (Rated for Div. 2)</title>

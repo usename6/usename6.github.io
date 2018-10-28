@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/10/28/DP%E4%BC%98%E5%8C%96%E4%B8%93%E9%A2%98/</loc>
+        <lastmod>2018-10-28T15:48:11.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/10/28/DP%E4%BC%98%E5%8C%96%E4%B8%93%E9%A2%98%E4%B8%80/</loc>
+        <lastmod>2018-10-28T15:44:51.730Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/10/28/Wannafly%E6%8C%91%E6%88%98%E8%B5%9B27/</loc>
         <lastmod>2018-10-28T14:57:23.160Z</lastmod>
         <changefreq>weekly</changefreq>

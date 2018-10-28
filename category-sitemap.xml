@@ -43,15 +43,22 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/ACM/</loc>
+        <loc>http://yoursite.com/categories/ACM/Wannafly/</loc>
         <lastmod>2018-10-28T14:57:23.160Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/ACM/Wannafly/</loc>
-        <lastmod>2018-10-28T14:57:23.160Z</lastmod>
+        <loc>http://yoursite.com/categories/ACM/</loc>
+        <lastmod>2018-10-28T15:48:11.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/ACM/DP/</loc>
+        <lastmod>2018-10-28T15:48:11.892Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -17,13 +17,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/ACM/</loc>
-        <lastmod>2018-10-25T04:06:47.784Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/%E6%80%BB%E7%BB%93/</loc>
         <lastmod>2018-10-25T04:06:47.784Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -47,6 +40,20 @@
     <url>
         <loc>http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
         <lastmod>2018-10-28T14:36:53.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/ACM/</loc>
+        <lastmod>2018-10-28T14:57:23.160Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Wannafly/</loc>
+        <lastmod>2018-10-28T14:57:23.160Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

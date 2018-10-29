@@ -38,15 +38,15 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
-        <lastmod>2018-10-28T14:36:53.041Z</lastmod>
+        <loc>http://yoursite.com/tags/Wannafly/</loc>
+        <lastmod>2018-10-28T14:57:23.160Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/Wannafly/</loc>
-        <lastmod>2018-10-28T14:57:23.160Z</lastmod>
+        <loc>http://yoursite.com/tags/DP/</loc>
+        <lastmod>2018-10-29T05:11:21.863Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -59,8 +59,15 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/DP/</loc>
-        <lastmod>2018-10-29T05:11:21.863Z</lastmod>
+        <loc>http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
+        <lastmod>2018-10-29T12:06:33.882Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Open-GL/</loc>
+        <lastmod>2018-10-29T12:06:33.882Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

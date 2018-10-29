@@ -51,14 +51,14 @@
 
     <url>
         <loc>http://yoursite.com/categories/ACM/</loc>
-        <lastmod>2018-10-28T15:56:59.095Z</lastmod>
+        <lastmod>2018-10-29T05:08:33.082Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/categories/ACM/DP/</loc>
-        <lastmod>2018-10-28T15:56:59.095Z</lastmod>
+        <lastmod>2018-10-29T05:08:33.082Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/11/06/NAIPC-C-Greeting/</loc>
+        <lastmod>2018-11-06T01:22:21.859Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/11/06/Red-Black-Tree/</loc>
         <lastmod>2018-11-05T20:17:35.865Z</lastmod>
         <changefreq>weekly</changefreq>

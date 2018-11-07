@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Open GL 基本函数二 1void glClearColor(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha); 参数分别是红，绿，蓝，不透明度，取值范围在[0,1]，仅仅只是执行设定颜色，不执行清除工作，仅仅是为了glClear()函数做准备 1glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFF">
+<meta name="description" content="Open GL 基本函数二">
 <meta name="keywords" content="OpenGL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Open GL 基本函数二">
 <meta property="og:url" content="http://yoursite.com/2018/10/27/Open-GL-基本函数二/index.html">
 <meta property="og:site_name" content="usename6">
-<meta property="og:description" content="Open GL 基本函数二 1void glClearColor(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha); 参数分别是红，绿，蓝，不透明度，取值范围在[0,1]，仅仅只是执行设定颜色，不执行清除工作，仅仅是为了glClear()函数做准备 1glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFF">
+<meta property="og:description" content="Open GL 基本函数二">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-27T13:57:49.296Z">
+<meta property="og:updated_time" content="2018-11-07T08:38:16.351Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Open GL 基本函数二">
-<meta name="twitter:description" content="Open GL 基本函数二 1void glClearColor(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha); 参数分别是红，绿，蓝，不透明度，取值范围在[0,1]，仅仅只是执行设定颜色，不执行清除工作，仅仅是为了glClear()函数做准备 1glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFF">
+<meta name="twitter:description" content="Open GL 基本函数二">
 
 
 
@@ -140,8 +140,8 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
   
   
     
@@ -406,9 +406,7 @@
       
 
       
-        <p>Open GL 基本函数二</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glClearColor</span><span class="params">(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>参数分别是红，绿，蓝，不透明度，取值范围在[0,1]，仅仅只是执行设定颜色，不执行清除工作，仅仅是为了glClear()函数做准备</p>
+        <p>Open GL 基本函数二<br><a id="more"></a><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glClearColor</span><span class="params">(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha)</span></span>;</span><br></pre></td></tr></table></figure><br>参数分别是红，绿，蓝，不透明度，取值范围在[0,1]，仅仅只是执行设定颜色，不执行清除工作，仅仅是为了glClear()函数做准备</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)</span><br></pre></td></tr></table></figure>
 <p>参数可为一个或多个，若为多个，用’|’隔开<br>GL_COLOR_BUFFER_BIT<br>当前可写的颜色缓冲<br>GL_DEPTH_BUFFER_BIT<br>深度缓冲<br>GL_ACCUM_BUFFER_BIT<br>累积缓冲<br>GL_STENCIL_BUFFER_BIT<br>模板缓冲</p>
 <p>如果两个函数结合一起用，即<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glClearColor(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>);  <span class="comment">//白色</span></span><br><span class="line">glClear(GL_COLOR_BUFFER_BIT);</span><br></pre></td></tr></table></figure><br>表示把背景设置成蓝色</p>
@@ -1124,7 +1122,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1132,5 +1130,8 @@
 
   
 
+<!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

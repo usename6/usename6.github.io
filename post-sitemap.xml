@@ -8,64 +8,8 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/11/07/%E5%9B%BE%E7%9A%84%E8%A3%81%E5%89%AA%E7%AE%97%E6%B3%95%E5%92%8C%E6%9B%B2%E7%BA%BF%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2018-11-07T08:27:43.221Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/11/06/%E5%9B%BE%E5%BD%A2%E7%9A%84%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2018-11-06T15:30:40.820Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/11/06/Red-Black-Tree/</loc>
-        <lastmod>2018-11-06T01:25:05.102Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/11/06/NAIPC-C-Greeting/</loc>
-        <lastmod>2018-11-06T01:24:43.466Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/11/04/Maze-Designer/</loc>
-        <lastmod>2018-11-04T07:28:19.283Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/10/29/Bresenham%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2018-10-29T12:08:36.358Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/10/29/DP%E4%BC%98%E5%8C%96%E4%B8%93%E9%A2%98%E4%BA%8C/</loc>
-        <lastmod>2018-10-29T05:11:21.863Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/10/28/DP%E4%BC%98%E5%8C%96%E4%B8%93%E9%A2%98%E4%B8%80/</loc>
-        <lastmod>2018-10-28T15:56:59.095Z</lastmod>
+        <loc>http://yoursite.com/2018/10/28/%E4%B8%AD%E7%82%B9%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2018-11-07T08:40:38.062Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,31 +17,23 @@
 
     <url>
         <loc>http://yoursite.com/2018/10/28/Wannafly%E6%8C%91%E6%88%98%E8%B5%9B27/</loc>
-        <lastmod>2018-10-28T14:57:23.160Z</lastmod>
+        <lastmod>2018-11-07T08:40:06.685Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/10/28/%E4%B8%AD%E7%82%B9%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2018-10-28T14:36:53.041Z</lastmod>
+        <loc>http://yoursite.com/2018/11/06/%E5%9B%BE%E5%BD%A2%E7%9A%84%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2018-11-07T08:39:29.597Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/10/27/DDA%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2018-10-27T14:46:06.309Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/10/27/Open-GL-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%BA%8C/</loc>
-        <lastmod>2018-10-27T13:57:49.296Z</lastmod>
+        <loc>http://yoursite.com/2018/11/06/Red-Black-Tree/</loc>
+        <lastmod>2018-11-07T08:39:09.349Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -105,7 +41,15 @@
 
     <url>
         <loc>http://yoursite.com/2018/10/27/Open-GL-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%B8%80/</loc>
-        <lastmod>2018-10-27T13:05:44.544Z</lastmod>
+        <lastmod>2018-11-07T08:38:36.547Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/10/27/Open-GL-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%BA%8C/</loc>
+        <lastmod>2018-11-07T08:38:16.351Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -113,7 +57,39 @@
 
     <url>
         <loc>http://yoursite.com/2018/10/27/Educational-Codeforces-Round-53-Rated-for-Div-2/</loc>
-        <lastmod>2018-10-27T03:10:23.244Z</lastmod>
+        <lastmod>2018-11-07T08:37:53.518Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/10/28/DP%E4%BC%98%E5%8C%96%E4%B8%93%E9%A2%98%E4%B8%80/</loc>
+        <lastmod>2018-11-07T08:37:14.209Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/10/29/DP%E4%BC%98%E5%8C%96%E4%B8%93%E9%A2%98%E4%BA%8C/</loc>
+        <lastmod>2018-11-07T08:36:38.799Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/10/27/DDA%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2018-11-07T08:36:17.812Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/10/29/Bresenham%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2018-11-07T08:35:56.910Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -121,7 +97,31 @@
 
     <url>
         <loc>http://yoursite.com/2018/10/25/ACM-ICPC-%E6%B2%88%E9%98%B3%E7%AB%99%E6%80%BB%E7%BB%93/</loc>
-        <lastmod>2018-10-25T04:06:47.784Z</lastmod>
+        <lastmod>2018-11-07T08:35:32.594Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/11/04/Maze-Designer/</loc>
+        <lastmod>2018-11-07T08:32:01.831Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/11/06/NAIPC-C-Greeting/</loc>
+        <lastmod>2018-11-07T08:31:50.249Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/11/07/%E5%9B%BE%E7%9A%84%E8%A3%81%E5%89%AA%E7%AE%97%E6%B3%95%E5%92%8C%E6%9B%B2%E7%BA%BF%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2018-11-07T08:30:56.739Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

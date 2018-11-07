@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[图的裁剪算法&&曲线算法]]></title>
+    <url>%2F2018%2F11%2F07%2F%E5%9B%BE%E7%9A%84%E8%A3%81%E5%89%AA%E7%AE%97%E6%B3%95%E5%92%8C%E6%9B%B2%E7%BA%BF%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[裁剪算法，首先先状压下线段和边界的状态，然后根据斜截式暴力判断一下就好了，没什么难度，单纯模拟暴力，图形学马上就考试，毛线不懂怎么办啊，还没修界面，还没补青岛，还没搞数据库实验，数模还没看（队友会不会打我。。。）123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118#include "graphics.h" // 引用所需要的图形库#include &lt;algorithm&gt;#define TOP 1#define BOTTOM 2#define RIGHT 4#define LEFT 8#define x first#define y secondusing namespace std;const int XL=100,XR=300,YB=100,YT=300;int encode(int x,int y)&#123; int code=0; if(y&lt;YB)code=code|BOTTOM; if(y&gt;YT)code=code|TOP; if(x&lt;XL)code=code|LEFT; if(x&gt;XR)code=code|RIGHT; return code;&#125;void DisplayLine(int x1, int y1, int x2, int y2, int color) //中点划线&#123; int x = x1, y = y1; int a = y1 - y2, b = x2 - x1; int cx = (b &gt;= 0 ? 1 : (b = -b, -1)); int cy = (a &lt;= 0 ? 1 : (a = -a, -1)); putpixel(x, y, color); int d, d1, d2; if (-a &lt;= b) // 斜率绝对值 &lt;= 1 &#123; d = 2 * a + b; d1 = 2 * a; d2 = 2 * (a + b); while(x != x2) &#123; if (d &lt; 0) y += cy, d += d2; else d += d1; x += cx; putpixel(x, y, color); &#125; &#125; else // 斜率绝对值 &gt; 1 &#123; d = 2 * b + a; d1 = 2 * b; d2 = 2 * (a + b); while(y != y2) &#123; if(d &lt; 0) d += d1; else x += cx, d += d2; y += cy; putpixel(x, y, color); &#125; &#125;&#125;pair&lt;int,int&gt; solve(int x1,int y1,int x2,int y2)&#123; //circle(300,200,100); int x=x1,y=y1; int code=encode(x,y); while(code) &#123; if(code&amp;TOP) &#123; y=YT; x=(x1-x2)*(y-y1)/(y1-y2)+x1; &#125; if(code&amp;BOTTOM) &#123; y=YB; x=(x1-x2)*(y-y1)/(y1-y2)+x1; &#125; if(code&amp;LEFT) &#123; x=XL; y=(y1-y2)*(x-x1)/(x1-x2)+y1; &#125; if(code&amp;RIGHT) &#123; x=XR; y=(y1-y2)*(x-x1)/(x1-x2)+y1; &#125; code=encode(x,y); &#125; //circle(300,200,50); return pair&lt;int,int&gt;(x,y);&#125;void cur_line(int x1,int y1,int x2,int y2)&#123; pair&lt;int,int&gt; s=solve(x1,y1,x2,y2); pair&lt;int,int&gt; e=solve(x2,y2,x1,y1); DisplayLine(s.x,s.y,e.x,e.y,GREEN);&#125;int main()&#123; initgraph(600, 600); //初始化，显示一个窗口，这里和BGI略有区别 setcaption("裁剪算法"); //设置窗口标题。 DisplayLine(100,100,100,300,RED); DisplayLine(100,300,300,300,RED); DisplayLine(300,100,300,300,RED); DisplayLine(100,100,300,100,RED); DisplayLine(0,0,500,500,BLUE); cur_line(0,0,500,500); getch(); //暂停一下等待用户按键 closegraph(); //关闭图形界面 return 0;&#125;]]></content>
+      <categories>
+        <category>图形学，裁剪算法</category>
+        <category>曲线</category>
+      </categories>
+      <tags>
+        <tag>图形学</tag>
+        <tag>裁剪算法</tag>
+        <tag>曲线</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[图形的填充算法]]></title>
     <url>%2F2018%2F11%2F06%2F%E5%9B%BE%E5%BD%A2%E7%9A%84%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[填充算法一共有三种：一种是扫描线算法，扫描线算法挺简单的，如果取y轴平行线做扫描线，把交点的x坐标丢进y扫描线就行，用几个vector维护，然后有几个条件：扫描在当前点之前到奇数个点，那就不在凸包里面，如果有偶数个点，则反之，然后这其中如果有交点是顶点则分类讨论，如果多边形上连接该点的两条边在扫描线同侧，则加2，否则加1，然后还是应用之前的条件看是否在凸包内部即可边填充就是取反，从交点开始扫，然后每次对右边取反就完事种子填充更简单，就看有没有打到边界，dfs就行，只要图形不是很大，都不会爆栈吧123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205#include "graphics.h" // 引用所需要的图形库#include &lt;vector&gt;#include &lt;cmath&gt;#include &lt;algorithm&gt;#include &lt;cstdio&gt;using namespace std;int used[505][505];int mark[505][505];bool vis[505][505];struct Point&#123; int x,y; Point()&#123;&#125; Point(int a,int b):x(a),y(b)&#123;&#125; bool operator &lt;(const Point &amp;tp) &#123; if(x==tp.x)return y&lt;tp.y; return x&lt;tp.x; &#125;&#125;;vector&lt;Point&gt; G;vector&lt;int&gt; Line[505];vector&lt;Point&gt; st[100005];int dx[4]=&#123;0,0,-1,1&#125;;int dy[4]=&#123;-1,1,0,0&#125;;inline int get_id(int x,int y)&#123; return x*501+y;&#125;void BreLine(int x1,int y1,int x2,int y2)&#123; int x,y; int dx,dy; int s1,s2; //标志点,记录x1与x2、y1与y2的位置关系 int e; int t; int tag; //记录斜率情况 int i; x=x1; y=y1; dx=abs(x1-x2); dy=abs(y1-y2); if(x2&gt;x1) s1=1; else s1=-1; if(y2&gt;y1) s2=1; else s2=-1; if(dy&gt;dx) &#123; t=dx; dx=dy; dy=t; tag=1; &#125; else tag=0; e=2*dy-dx; for(i=1;i&lt;=dx;i++) &#123; putpixel(x,y,RED); used[x][y]=1; Line[y].push_back(x); G.push_back(Point(x,y)); if(e&gt;=0) &#123; if(tag==0) y=y+s2; else x=x+s1; e=e-2*dx; &#125; if(tag==0) x=x+s1; else y=y+s2; e=e+2*dy; &#125; return;&#125;void Line_paint() //边填充算法&#123; memset(mark,-1,sizeof(mark)); sort(G.begin(),G.end()); for(int i=0;i&lt;(int)G.size();i++) &#123; Point tp=G[i]; int y=tp.y; if(used[tp.x][tp.y]==2)continue; for(int x=tp.x;x&lt;=500;x++) &#123; if(mark[x][y]==-1)mark[x][y]=1; else mark[x][y]=!mark[x][y]; &#125; &#125; for(int x=0;x&lt;=500;x++) for(int y=0;y&lt;=500;y++) if(mark[x][y]==1)putpixel(x,y,RED);&#125;bool ck(int x,int y)&#123; vector&lt;int&gt;::iterator itt=lower_bound(Line[y].begin(),Line[y].end(),x); if(Line[y].size()==0)return false; if(itt==Line[y].begin()&amp;&amp;(*itt)&gt;x)return false; int cnt=0; int d=100; for(vector&lt;int&gt;::iterator it=Line[y].begin();it!=Line[y].end();it++) &#123; int xx=(*it); if(xx&gt;x) break; int yy=y; if(used[xx][yy]==2) &#123; int id=get_id(xx,yy); if(st[id][0].y&lt;=yy&amp;&amp;st[id][1].y&lt;=yy) cnt+=2; else if(st[id][0].y&gt;=yy&amp;&amp;st[id][1].y&gt;=yy) cnt+=2; else cnt++; &#125; else cnt++; &#125; return (cnt&amp;1);&#125;void dfs(int x,int y)&#123; for(int i=0;i&lt;4;i++) &#123; int xx=x+dx[i]; int yy=y+dy[i]; if(used[xx][yy]==1||used[xx][yy]==2) &#123; putpixel(x,y,GREEN); continue; &#125; if(vis[xx][yy])continue; putpixel(x,y,GREEN); vis[xx][yy]=true; dfs(xx,yy); &#125;&#125;void gram()&#123; for(int i=0;i&lt;=500;i++) &#123; for(int j=0;j&lt;=500;j++) &#123; if(used[i][j]) &#123; putpixel(i,j,GREEN); continue; &#125; if(ck(i,j)) putpixel(i,j,GREEN); &#125; &#125;&#125;int main()&#123; initgraph(500, 500); //初始化，显示一个窗口，这里和BGI略有区别 memset(used,0,sizeof(used)); for(int i=0;i&lt;=500;i++)Line[i].clear(); setcaption("填充算法"); //设置窗口标题。 BreLine(0,0,100,400); BreLine(100,400,200,0); BreLine(100,100,200,0); BreLine(0,0,100,100); //printf("yes\n"); for(int i=0;i&lt;=500;i++) &#123; if(Line[i].size()==0)continue; sort(Line[i].begin(),Line[i].end()); &#125; st[get_id(0,0)].push_back(Point(100,400)); st[get_id(0,0)].push_back(Point(100,100)); st[get_id(100,400)].push_back(Point(0,0)); st[get_id(100,400)].push_back(Point(200,0)); st[get_id(200,0)].push_back(Point(100,400)); st[get_id(200,0)].push_back(Point(100,100)); st[get_id(100,100)].push_back(Point(0,0)); st[get_id(100,100)].push_back(Point(200,0)); //printf("yes\n"); used[0][0]=used[100][400]=used[100][100]=used[200][0]=2; //Line_paint(); //dfs(100,200); gram(); getch(); //暂停一下等待用户按键 closegraph(); //关闭图形界面 return 0;&#125;]]></content>
@@ -120,8 +134,8 @@
         <category>图形学</category>
       </categories>
       <tags>
-        <tag>图形学</tag>
         <tag>OpenGL</tag>
+        <tag>图形学</tag>
       </tags>
   </entry>
   <entry>
@@ -133,8 +147,8 @@
         <category>图形学</category>
       </categories>
       <tags>
-        <tag>图形学</tag>
         <tag>OpenGL</tag>
+        <tag>图形学</tag>
       </tags>
   </entry>
   <entry>

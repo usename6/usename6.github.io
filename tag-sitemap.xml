@@ -123,14 +123,14 @@
 
     <url>
         <loc>http://yoursite.com/tags/%E6%9C%BA%E8%AF%95/</loc>
-        <lastmod>2020-03-21T08:29:12.793Z</lastmod>
+        <lastmod>2020-03-21T08:31:16.930Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/C/</loc>
-        <lastmod>2020-03-21T08:29:12.793Z</lastmod>
+        <lastmod>2020-03-21T08:31:16.930Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2020/04/01/%E5%B9%B3%E9%9D%A2%E6%9C%80%E8%BF%91%E7%82%B9%E5%AF%B9/</loc>
+        <lastmod>2020-04-01T13:05:49.791Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2020/03/26/C-plus-plus-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E4%B8%80-%E2%80%94%E2%80%94%E2%80%94-%E5%AD%A6%E4%B9%A0%E5%87%BD%E6%95%B0/</loc>
+        <lastmod>2020-03-26T15:30:45.170Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2020/03/26/KD-tree-%E7%BB%83%E4%B9%A0%E4%B8%80%EF%BC%9AHDU-5992-Finding-Hotels/</loc>
         <lastmod>2020-03-26T13:09:04.558Z</lastmod>
         <changefreq>weekly</changefreq>

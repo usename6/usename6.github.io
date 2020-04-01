@@ -129,22 +129,43 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/C/</loc>
+        <lastmod>2020-03-26T15:30:45.170Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+        <lastmod>2020-03-26T15:30:45.170Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/ACM/</loc>
-        <lastmod>2020-03-26T13:09:04.558Z</lastmod>
+        <lastmod>2020-04-01T13:05:49.791Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/machine-learning/</loc>
-        <lastmod>2020-03-26T13:09:04.558Z</lastmod>
+        <lastmod>2020-04-01T13:05:49.791Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/K-D-tree/</loc>
-        <lastmod>2020-03-26T13:09:04.558Z</lastmod>
+        <lastmod>2020-04-01T13:05:49.791Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%88%86%E6%B2%BB/</loc>
+        <lastmod>2020-04-01T13:05:49.791Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

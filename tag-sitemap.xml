@@ -158,14 +158,14 @@
 
     <url>
         <loc>http://yoursite.com/tags/C/</loc>
-        <lastmod>2020-04-02T07:15:55.953Z</lastmod>
+        <lastmod>2020-04-11T09:26:37.449Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
-        <lastmod>2020-04-02T07:15:55.953Z</lastmod>
+        <lastmod>2020-04-11T09:26:37.449Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

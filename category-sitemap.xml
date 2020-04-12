@@ -170,21 +170,21 @@
 
     <url>
         <loc>http://yoursite.com/categories/ACM/</loc>
-        <lastmod>2020-04-12T09:06:15.066Z</lastmod>
+        <lastmod>2020-04-12T09:08:13.429Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/categories/ACM/machine-learning/</loc>
-        <lastmod>2020-04-12T09:06:15.066Z</lastmod>
+        <lastmod>2020-04-12T09:08:13.429Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite.com/categories/ACM/machine-learning/%E6%A6%82%E7%8E%87%E5%9B%BE/</loc>
-        <lastmod>2020-04-12T09:06:15.066Z</lastmod>
+        <lastmod>2020-04-12T09:08:13.429Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

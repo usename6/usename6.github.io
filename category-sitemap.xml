@@ -155,13 +155,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/C/</loc>
-        <lastmod>2020-04-11T12:06:15.895Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/categories/C/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
         <lastmod>2020-04-11T12:06:15.895Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -185,6 +178,20 @@
     <url>
         <loc>http://yoursite.com/categories/ACM/machine-learning/%E6%A6%82%E7%8E%87%E5%9B%BE/</loc>
         <lastmod>2020-04-12T09:13:51.112Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/C/</loc>
+        <lastmod>2020-04-22T07:20:55.153Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/C/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
+        <lastmod>2020-04-22T07:20:55.153Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

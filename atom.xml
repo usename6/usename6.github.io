@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-22T07:20:55.153Z</updated>
+  <updated>2020-04-22T14:25:04.174Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>神经网络学习(一) --- 卷积部分</title>
+    <link href="http://yoursite.com/2020/04/22/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C1/"/>
+    <id>http://yoursite.com/2020/04/22/神经网络1/</id>
+    <published>2020-04-22T09:07:18.000Z</published>
+    <updated>2020-04-22T14:25:04.174Z</updated>
+    
+    <content type="html"><![CDATA[<p>烂笔头疗法，学习下神经网络的卷积部分，（只是理论部分，改天有时间实操几个问题。。<br><a id="more"></a><br>一、卷积<br>1.1 卷积的概念<br>摆个图，应该就懂了（逃<br><img src="/images/神经网络-1/figure1.jpg" alt="alt"><br><img src="/images/神经网络-1/figure2.gif" alt="alt"><br>卷积的作用：在于能提供和挖掘物体的某些共有特征<br>先放一张图在下面，然后介绍一些专有名词：<br><img src="/images/神经网络-1/figure3.png" alt="alt"><br>input_channel: 输入数据的channel个数，对应每个kernel(filter)有多少个channel。<br>output_channel:输出数据(feature map)的channel个数，对应有多少个kernel(filter)。<br>kernel(filter): 卷积核，如图所示，黄色的部分<br>padding: 在图片最外圈补零。如果padding等于，就相当于补两圈0，最后得到输入的size为(h+2,w+2)。<br>stride:卷积核每次移动的补偿，上图卷积核stride为1。<br>feature map:最后得到的输出。<br>如何计算feature map的size</p><script type="math/tex; mode=display">outputsize=(inputsize-kernelsize+2 \times padding)/stride+1</script><p>1.2 特殊的卷积 —— 1x1卷积的作用<br>1）channel-wise full connection （跨通道信息结合）<br>可以按照将feature map中的(x,y)的不同channel连接起来，这样相比全连接层参数更少，更节省空间。在16年CVPR 《Context Encoders: Feature Learning by Inpainting》有提及。如果想保持输入和输出size一样，使用全连接的参数比1x1卷积多。<br>2）升维、降维：这主要是指channel维度。<br>二、反卷积（转置卷积）<br>2.1 反卷积的概念<br>反卷积主要作用，举个我现在正在图像修补的任务来说，图像修补主要采用类似Encoder-Decoder的结构，Encoder主要采用卷积将语义信息编码，在decoder阶段主要使用反卷积（转置卷积）进行解码，还原原图的分辨率。我认为这种结构应该常见于类似UNet的网络的结构。（或是图像修补任务中）。<br>那么反卷积是什么呢？<br>下图是反卷积的常见的过程。<br><img src="/images/神经网络-1/figure4.gif" alt="alt"><br>在这里,$ kernel_size = 3, padding = 1, stride = 2$。<br>那么你可能会觉得好奇，按照正常卷积那套，这里的stride不应该是1吗。<strong>这里就是反卷积和卷积的不同。反卷积的stride并不代表每次点乘后需要将kernel移动多少个单位，而是代表我需要在input里面插入每两列、每两行插入stride-1的列（行）的0。注：padding决定边界插入多少列（行）的0。</strong><br>下图给个stride为1的反卷积，这个实际上和卷积的参数是相同。（$padding=2,stride=1,kernelsize=3$）<br><img src="/images/神经网络-1/figure5.gif" alt="alt"><br>2.2 如何计算反卷积的output_size<br>反卷积的output_size其实可以先算出中间插入0后新的input_size，再利用stride=1、padding、kernel_size计算新的feature_map的大小。<br>知乎硬是没看懂。。。（那个取mod不是搞笑吗，不是变成蛋生鸡还是鸡生蛋的问题了吗？那这样我还不如直接模拟，或者就考虑没有余数的情况）<br><a href="https://www.zhihu.com/question/48279880" target="_blank" rel="noopener">https://www.zhihu.com/question/48279880</a><br>反正正常情况：$ ((inputsize - 1) \times stride + 2 \times padding - kernelsize) / 1$,(化简过，别怀疑为什么没有+1)。<br>三、空洞卷积(膨胀卷积)<br>3.1 空洞卷积的概念<br>还是给个图感受下：<br><img src="/images/神经网络-1/figure6.png" alt="alt"><br>dilate=2，kernel_size=3,padding=0。<br>3.2 感受野概念及应用<br>感受野就是当前的feature map的每一个节点和多少个输入节点相关。例如下图，倒数第二层的feature map每个节点由输入的两个节点构成。那么相当于感受野是2。我们上面（蓝色）的图的倒数第3层节点感受野是4，而在第二层跳过一个节点做连接的感受野是5，感受野增大，主要是跳过一些节点后，重复感受野区域减小了，非重复区域增多，所以导致感受野整体增大。<br>图像修补<br><img src="/images/神经网络-1/figure7.jpg" alt="alt"><br>应用：感受野通常应用在目标检测、语义分割、图像修补等领域。例如基于anchor的目标检测，如果卷积捕捉的语义太小，那么很有可能不足以表征整个anchor的语义无法进行正确的目标检测。例如盲人摸大象，你只摸到象腿，能猜出这个是象吗？对于图像修补，如果捕捉语义太小，很有可能捕捉的仍是空洞的语义，这样必然会导致结果更加模糊。如下图所示：<br><img src="/images/神经网络-1/figure8.png" alt="alt"><br>不过以上的推理都是理论的感受野，并不是在卷积过程中真正的感受野。由于在卷积过程中，事实上会有些节点重复编码到一个feature map的节点中，这样该节点对feature map的这个节点贡献较大。所以并不是感受野中每个节点对feature map的某一节点影响是等同的。一般是呈现高斯分布（在感受野中间的节点值对该feature map的这个节点影响较大）。<br>来源：2016 NIPS 《Understanding the Effective Receptive Field in Deep Convolutional Neural Networks》<br>一个本人觉得讲的不错解释：<br><a href="https://zhuanlan.zhihu.com/p/40267131" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/40267131</a><br>3.3 空洞卷积与卷积的区别<br>普通卷积也可以增加感受野，通常由两种操作：<br>a.卷积后增加池化层<br>b.卷积加stride<br>a操作的缺点在于池化层增加参数和计算的复杂度，而且损失了更多的信息。<br>b操作的缺点在于加入stride后，感受野的增加是延迟的。不能在当前层起效。比如说你当前进行stride=2的卷积，那么想要增加感受野，必须在这之后再加一层卷积，这层卷积后得到feature map比原来经过stride=1卷积后在卷积的feature map感受野大。<br>而空洞卷积则不存在上述问题，即空洞能及时的进行感受野增大，能保证用较小的参数、损失较小的信息实现feature map的感受野的增加增加。<br>五、depthwise卷积、pointwise卷积<br>首先我们要知道常规卷积的操作是怎么样，如下图所示：<br><img src="/images/神经网络-1/figure11.png" alt="alt"><br>而事实上，我们可以拆分成两步：Depthwise Convolution与Pointwise Convolution。<br>首先是Depthwise Convolution：<br>如下图所示，有多少个input_channel，就有多少个深度卷积核(channel都是1)，且每个深度卷积核只和对应的channel的输入进行卷积。<br><img src="/images/神经网络-1/figure12.png" alt="alt"><br>而后是Pointwise Convolution:<br><img src="/images/神经网络-1/figure13.png" alt="alt"><br>如下图所示，output_channel = filter_count，而每一个卷积核的size为1 x 1 x input_channel。<br>可以发现：原来参数个数为：$3 \times 3 \times 3 \times 4 = 108$<br>而现在的参数: $3 \times 3 \times 3 + 1 \times 1 \times 4 = 31 $<br>参数近乎减少到原来的1/3，让我们再来看卷积的计算次数（只关注乘法，因为乘法消耗的CPU or GPU时间周期更大）：<br>原来： $origincnt =  H \times W \times 4 \times 3 \times 3 $<br>而现在：$curcnt = H \times W \times 3 \times 3 \times 3 + H \times W \times 4 \times 1 \times 1 $<br>乘法次数大幅度减少。<br>这样能够大幅度减少参数和卷积次数，大大降低时间复杂度和空间复杂度。是一种优化的方式。<br>六、其他卷积<br>部分卷积<br>最早是由ECCV 2018年的一篇论文《Image Inpainting for Irregular Holes Using Partial Convolutions》。由NVIDIA提出来一种概念，他们团队认为普通卷积没有考虑每个节点对该区域影响权重，而错误将每个节点视为等同，这样容易导致填补过程的歧义（我口胡的：可以理解为动态规划的具有后效性，比如说当前有缺失像素A和缺失像素B，卷积核先利用缺失像素B的信息先将缺失像素A进行补洞，而后利用缺失像素A的信息再对缺失像素B进行补洞，这样容易混乱，如果我们加入权值，就可以令B像素对A像素填充权重更小以避免这钟情况的发生。），这因为这种特性，所以可以使用部分卷积有利于对非规则区域的像素进行填充。（因为如果直接卷积，容易导致补洞的过拟合，如把很多没用的区域考虑进去了，出现模糊的现象。）<br>具体方法如下：<br><img src="/images/神经网络-1/figure9.png" alt="alt"><br><img src="/images/神经网络-1/figure10.png" alt="alt"><br>门卷积<br>是在部分卷积上的改进版本。由Yu、Adobe Research、ByteDance Research的团队在ICCV(oral)《Free-Form Image Inpainting with Gated Convolution》提出来一项技术。Yu认为部分卷积并不能很准确区分那些像素是有效的，那些像素对该区域的语义信息编码、或者是补洞是有效的。例如说下面两个Patch，在部分卷积中则会视为等同：</p><script type="math/tex; mode=display">\begin {pmatrix}     1 & 1 & 1 \\     1 & 1 & 1\\     1 & 1 & 1 \end {pmatrix}</script><script type="math/tex; mode=display">\begin {pmatrix}     0 & 0 & 0 \\     0 & 0 & 1\\     0 & 0 & 1 \end {pmatrix}</script><p>其中0表示missing pixel，而1表示known pixel。很明显上面的区域更容易看成（编码）一个known region，对补洞的贡献更大。而下面的区域更容易被编码成unkown region，对补洞贡献要小一些，而在部分卷积中这两者是等同，明显不合理，当然作者还举了其他不合理的地方，这里不一一列出了。（大概在文中Introduction的第四段）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;烂笔头疗法，学习下神经网络的卷积部分，（只是理论部分，改天有时间实操几个问题。。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="神经网络，machine learning" scheme="http://yoursite.com/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%8Cmachine-learning/"/>
+    
+    
+      <category term="神经网络，machine learning" scheme="http://yoursite.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%8Cmachine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>C++ 网络编程（一） --- 初识socket</title>
@@ -510,9 +532,9 @@
       <category term="图形学" scheme="http://yoursite.com/categories/OpenGL/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
     
-      <category term="图形学" scheme="http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
       <category term="OpenGL" scheme="http://yoursite.com/tags/OpenGL/"/>
+    
+      <category term="图形学" scheme="http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
   </entry>
   
@@ -536,31 +558,9 @@
       <category term="图形学" scheme="http://yoursite.com/categories/OpenGL/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
     
+      <category term="OpenGL" scheme="http://yoursite.com/tags/OpenGL/"/>
+    
       <category term="图形学" scheme="http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-      <category term="OpenGL" scheme="http://yoursite.com/tags/OpenGL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Open GL 基本函数二</title>
-    <link href="http://yoursite.com/2018/10/27/Open-GL-%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E4%BA%8C/"/>
-    <id>http://yoursite.com/2018/10/27/Open-GL-基本函数二/</id>
-    <published>2018-10-27T13:31:31.000Z</published>
-    <updated>2018-11-07T08:38:16.351Z</updated>
-    
-    <content type="html"><![CDATA[<p>Open GL 基本函数二<br><a id="more"></a><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glClearColor</span><span class="params">(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha)</span></span>;</span><br></pre></td></tr></table></figure><br>参数分别是红，绿，蓝，不透明度，取值范围在[0,1]，仅仅只是执行设定颜色，不执行清除工作，仅仅是为了glClear()函数做准备</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)</span><br></pre></td></tr></table></figure><p>参数可为一个或多个，若为多个，用’|’隔开<br>GL_COLOR_BUFFER_BIT<br>当前可写的颜色缓冲<br>GL_DEPTH_BUFFER_BIT<br>深度缓冲<br>GL_ACCUM_BUFFER_BIT<br>累积缓冲<br>GL_STENCIL_BUFFER_BIT<br>模板缓冲</p><p>如果两个函数结合一起用，即<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glClearColor(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>);  <span class="comment">//白色</span></span><br><span class="line">glClear(GL_COLOR_BUFFER_BIT);</span><br></pre></td></tr></table></figure><br>表示把背景设置成蓝色</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glPointSize</span><span class="params">(GLfloat size)</span></span></span><br></pre></td></tr></table></figure><p>设置绘制时点的大小，大小单位为像素，默认值为1.0，很明显要大于0.0f</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glBegin</span><span class="params">(GLenum mode)</span></span></span><br></pre></td></tr></table></figure><p>mode表示创建元素的类型，有如下几个类型<br>GL_POINTS 单个顶点集<br>GL_LINES 多组双顶点线段<br>GL_POLYGON 单个简单填充凸多边形<br>GL_TRAINGLES 多组独立填充三角形<br>GL_QUADS 多组独立填充四边形<br>GL_LINE_STRIP 不闭合折线<br>GL_LINE_LOOP 闭合折线<br>GL_TRAINGLE_STRIP 线型连续填充三角形串<br>GL_TRAINGLE_FAN 扇形连续填充三角形串<br>GL_QUAD_STRIP 连续填充四边形串</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glEnd</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br></pre></td></tr></table></figure><p>一个几何图形绘制的结束</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glVertex2f(<span class="keyword">float</span>,<span class="keyword">float</span>)</span><br></pre></td></tr></table></figure><p>设定点的坐标，f表示参数是浮点数<br>类似的还有：<br>glVertex2d<br>glVertex2f<br>glVertex3f<br>glVertex3fv<br>字母表示参数的类型<br>1.s表示16位整数（OpenGL中将这个类型定义为GLshort），<br>2.i表示32位整数（OpenGL中将这个类型定义为GLint和GLsizei），<br>3.f表示32位浮点数（OpenGL中将这个类型定义为GLfloat和GLclampf），<br>4.d表示64位浮点数（OpenGL中将这个类型定义为GLdouble和GLclampd）。<br>5.v表示传递的几个参数将使用指针的方式。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glViewport(GLint x,GLint y,GLsizei width,GLsizei height)</span><br></pre></td></tr></table></figure><p>x，y 以像素为单位，指定了视口的左下角位置。<br>width，height 表示这个视口矩形的宽度和高度，根据窗口的实时变化重绘窗口。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Open GL 基本函数二&lt;br&gt;
-    
-    </summary>
-    
-      <category term="OpenGL" scheme="http://yoursite.com/categories/OpenGL/"/>
-    
-    
-      <category term="OpenGL" scheme="http://yoursite.com/tags/OpenGL/"/>
     
   </entry>
   

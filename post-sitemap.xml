@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2020/04/28/winsock-2/</loc>
+        <lastmod>2020-04-29T03:20:18.153Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2020/04/22/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C1/</loc>
         <lastmod>2020-04-22T14:25:04.174Z</lastmod>
         <changefreq>weekly</changefreq>

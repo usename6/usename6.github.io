@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-29T03:20:18.153Z</updated>
+  <updated>2020-04-30T15:23:25.550Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>隐式马尔科夫的学习</title>
+    <link href="http://yoursite.com/2020/04/29/%E9%9A%90%E5%BC%8F%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB/"/>
+    <id>http://yoursite.com/2020/04/29/隐式马尔科夫/</id>
+    <published>2020-04-29T12:46:04.000Z</published>
+    <updated>2020-04-30T15:23:25.550Z</updated>
+    
+    <content type="html"><![CDATA[<p>学习一下隐式马尔科夫这个问题。（好像除了参数估计，就是个概率DP啊，摔<br><a id="more"></a><br>一、基本概念<br>所有可能状态集合： $ Q = (q<em>1, q_2, … , q_n) $<br>所有可观测集合：   $ V = (v_1, v_2, … , v_M) $<br>长度为T的状态序列：$ I = (i_1, i_2, … , i_T) $<br>长度为T的观测序列：$ O = (o_1, o_2, … , o_T) $<br>初始概率分布：     $ \pi = (\pi</em>{1}, \pi<em>{2}, … , \pi</em>{n}) $<br>其中：<br>$ \pi<em>{i} = P(i_t=q_i) , i=1,2,…N $<br>状态转移矩阵：     $ A = [a</em>{ij}] $<br>其中：<br>$ a<em>{ij} = P(i</em>{t+1} = q<em>j | i_t = qi), i=1,2,…,N; j=1,2,…,N. $<br>观测转移矩阵：     $ B = [b</em>{ij}] $<br>其中：<br>$ b<em>{ij} = P(o_t = v_j | i_t = q_i), i=1,2…,N;j=1,2,…,M $<br>两个基本假设：<br>1）齐次马尔科夫性假设：即假设隐藏的马尔科夫链在任意时刻t的状态只依赖于前一个时刻的状态。与其他时刻状态及观测无关，也与t时刻无关。<br>2）观测独立假设：即假设任意时刻观测只依赖于该时刻的马尔科夫链的状态，与其他观测及状态无关。<br><strong>具体例子，请参考《统计学习方法》 第10章隐式马尔科夫随机场的第一节，对着例子思考，这些概念会很清晰。</strong><br>三个基本问题：<br>a. 概率计算，给定观测序列，计算在参数$\lamda$下的该观测序列的概率是多少？<br>b. 参数估计，给定观测序列，估计参数<br>c. 预测，给定观测序列，预测导致对应隐藏状态是多少。<br>二、概率计算问题<br>2.1 前向概率计算<br>定义foward[i][j]表示第j时刻，状态为i的概率是多少？<br>初值：$ foward[i][1] = \pi[i] \times b[i][o_1] $<br>转移方程： $ foward[i][t] = \sum</em>{j=1}^N{(foward[j][t-1] \times a[j][i])} \times b[i][o<em>t] , t \gt 1 $<br>最终结果： $ ans = \sum</em>{i=1}^N forward[i][T] $<br>2.2 后向概率计算<br>定义backward[i][j]表示从j+1时刻起，状态为i的概率是多少？<br>初值： $ backward[i][T] = 1 $<br>转移方程： $ backward[i][t] = \sum<em>{j=1}^N{(backward[j][t+1] \times a[j][i])} \times b[j][o</em>{t+1}] , t \lt T $<br>最终结果： $ ans = \sum<em>{i=1}^N{(\pi_i \times b[i][o_1] \times backward[i][1])} $<br>注：因为T+1以后的结果不再关心，所以可以虚拟出一个节点，将所有状态节点概率流入这个节点，所以这个节点的概率是1，结合后向概率的概念，所以backward[i][T]被初始化为1。<br>三、参数估计（简单介绍，暂时略过，在学习最大似然估计和最大后验估计等等参数估计方法，会补充说明）<br>主要是对转移状态矩阵和观测转移矩阵的估计，根据输入的训练数据的输入（是否包括状态序列），又分为有监督和无监督型学习方法。<br>四、预测问题<br>4.1 近似算法<br>这个算法很简单，是一种贪心算法，就是每个时刻都选择一个概率最大的状态作为该时刻的估计状态。<br>首先定义：<br>前向概率： $ \alpha</em>{t}(i) = forward[i][t] $<br>后向概率:  $ \beta<em>{t}(i) = backward[i][t] $<br>那么时刻t处于状态$q_i$的概率$ \gamma</em>{t}(i) = \frac{\alpha<em>{t}(i) \times \beta</em>{t}(i)}{\sum<em>{j=1}^N{\alpha</em>{t}(j) \times \beta<em>{t}(j)}} $<br>那么得到最有可能的状态<br>$ I</em>{t} = arg\,\max<em>{1 \le i \le N} [\gamma</em>{t}(i)] $<br>4.2 维比特算法<br>这个算法就是概率DP：<br>定义DP[i][t]表示t时刻下，状态为$q<em>i$的概率。<br>初值：   $ DP[i][1] = \pi</em>{i} \ times b[i][o<em>1] $<br>转移:    $ DP[i][t] = max(DP[j][t-1] \times b[j][o</em>{t-1}] \times a[j][t])，t \lt T $<br>最终结果：$ ans = max(DP[i][T]) $<br>然后在回溯求得这个路径就行了。<br>小小用C++ 搞搞这个代码，python的版本太多了。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习一下隐式马尔科夫这个问题。（好像除了参数估计，就是个概率DP啊，摔&lt;br&gt;
+    
+    </summary>
+    
+      <category term="machine learning" scheme="http://yoursite.com/categories/machine-learning/"/>
+    
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>C++ 网络编程（二） --- TCP传输</title>
@@ -535,32 +557,6 @@
       <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
     
       <category term="Wannafly" scheme="http://yoursite.com/tags/Wannafly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中点画线算法</title>
-    <link href="http://yoursite.com/2018/10/28/%E4%B8%AD%E7%82%B9%E7%94%BB%E7%BA%BF%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2018/10/28/中点画线算法/</id>
-    <published>2018-10-28T14:06:07.000Z</published>
-    <updated>2018-11-07T08:40:38.062Z</updated>
-    
-    <content type="html"><![CDATA[<p>图形学扫描线算法复习中，拯救图形学计划。。。<br><a id="more"></a><br>首先这个算法是有适用范围的：$0 &lt; k &lt; 1 $<br>首先将一般的直线方程转化为： $ F(x,y) = ax + by + c $<br>很明显我们发现<br>1.当$F(x,y) = 0$时，点(x,y)在直线上<br>2.当$F(x,y) &gt; 0$时，点(x,y)在直线的上方<br>3.当$F(x,y) &lt; 0$时，点(x,y)在直线的下方<br>若设当前像素点P点$(x<em>{p},y</em>{p})$，那么其中点M点$(x<em>{p} + 1,y</em>{p} + 0.5)$<br>定义 $d = F(M) = F(x<em>{p} + 1,y</em>{p} + 0.5) = a(x<em>{p} + 1) + b(y</em>{p} + 1) + c$<br>对d分类讨论有<br>若d大于0，即M点在直线上方，取$P<em>{1}$点<br>此时由$P</em>{1}$生成的F值（差值）为d1<br>$d1 = F(x<em>{p} + 2,y</em>{p} + 0.5) = a(x<em>{p} + 2) + b(y</em>{p} + 0.5) + c = d + a $<br>即 $x<em>{p+1} = x</em>{p} + 2$<br>   $y<em>{p+1} = y</em>{p} + 0.5$<br>   $d<em>{p+1} = d</em>{p} + a<br>若d小于0，即M点在直线下方，取$P<em>{2}点<br>同理 $ d2 = F{x</em>{p} + 2, y<em>{p} + 1.5} = a(x</em>{p} + 2) + b(y<em>{p} + 1.5) + c = d + a + b $<br>即 $x</em>{p+1} = x<em>{p} + 2$<br>   $y</em>{p+1} = y<em>{p} + 1.5$<br>   $d</em>{p+1} = d_{p} + a + b$</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GL/glut.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MP_Line</span><span class="params">(<span class="keyword">int</span> x0,<span class="keyword">int</span> y0,<span class="keyword">int</span> x1,<span class="keyword">int</span> y1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b,d1,d2,d,x,y;</span><br><span class="line">    a=y0-y1;</span><br><span class="line">    b=x1-x0;</span><br><span class="line">    d=a+a+b;</span><br><span class="line">    d1=a+a;</span><br><span class="line">    d2=a+a+b+b;</span><br><span class="line">    x=x0;</span><br><span class="line">    y=y0;</span><br><span class="line">    <span class="keyword">while</span>(x&lt;x1)</span><br><span class="line">    &#123;</span><br><span class="line">        glPointSize(<span class="number">5.0</span>);</span><br><span class="line">        glBegin(GL_POINTS);</span><br><span class="line">        <span class="keyword">if</span>(d&lt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            glVertex2f(x,y);</span><br><span class="line">            glEnd();</span><br><span class="line">            x++;</span><br><span class="line">            y++;</span><br><span class="line">            d+=d2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            glVertex2f(x,y);</span><br><span class="line">            glEnd();</span><br><span class="line">            x++;</span><br><span class="line">            d+=d1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//printf("(%d,%d)\n",x,y);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    glClearColor(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>);</span><br><span class="line">    glClear(GL_COLOR_BUFFER_BIT);</span><br><span class="line"></span><br><span class="line">    glViewport(<span class="number">0</span>,<span class="number">0</span>,<span class="number">500</span>,<span class="number">500</span>);</span><br><span class="line"></span><br><span class="line">    MP_Line(<span class="number">0</span>,<span class="number">0</span>,<span class="number">500</span>,<span class="number">100</span>);</span><br><span class="line">    MP_Line(<span class="number">0</span>,<span class="number">0</span>,<span class="number">500</span>,<span class="number">200</span>);</span><br><span class="line">    MP_Line(<span class="number">0</span>,<span class="number">0</span>,<span class="number">500</span>,<span class="number">300</span>);</span><br><span class="line">    MP_Line(<span class="number">0</span>,<span class="number">0</span>,<span class="number">500</span>,<span class="number">400</span>);</span><br><span class="line">    <span class="comment">//printf("over\n");</span></span><br><span class="line"></span><br><span class="line">    glFlush();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    glutInit(&amp;argc,argv);</span><br><span class="line">    glutInitDisplayMode(GLUT_SINGLE|GLUT_RED);</span><br><span class="line">    glutInitWindowSize(<span class="number">500</span>,<span class="number">500</span>);</span><br><span class="line">    glutInitWindowPosition(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    glutCreateWindow(<span class="string">"MPLine"</span>);</span><br><span class="line">    glutDisplayFunc(display);               <span class="comment">//调用里面函数的绘图函数（当然是你定义）</span></span><br><span class="line"></span><br><span class="line">    glColor3f(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>);</span><br><span class="line">    gluOrtho2D(<span class="number">0.0</span>, <span class="number">500.0</span>, <span class="number">0.0</span>, <span class="number">500.0</span>);</span><br><span class="line"></span><br><span class="line">    glutMainLoop();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;图形学扫描线算法复习中，拯救图形学计划。。。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="OpenGL" scheme="http://yoursite.com/categories/OpenGL/"/>
-    
-      <category term="图形学" scheme="http://yoursite.com/categories/OpenGL/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-    
-      <category term="OpenGL" scheme="http://yoursite.com/tags/OpenGL/"/>
-    
-      <category term="图形学" scheme="http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
   </entry>
   

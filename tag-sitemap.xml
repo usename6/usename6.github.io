@@ -94,14 +94,14 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/OpenGL/</loc>
+        <loc>http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
         <lastmod>2018-11-07T08:40:38.062Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
+        <loc>http://yoursite.com/tags/OpenGL/</loc>
         <lastmod>2018-11-07T08:40:38.062Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -157,13 +157,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/machine-learning/</loc>
-        <lastmod>2020-04-12T09:13:51.112Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/%E6%A6%82%E7%8E%87%E5%9B%BE/</loc>
         <lastmod>2020-04-12T09:13:51.112Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -187,6 +180,13 @@
     <url>
         <loc>http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
         <lastmod>2020-04-29T03:20:18.153Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/machine-learning/</loc>
+        <lastmod>2020-04-30T15:23:25.550Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

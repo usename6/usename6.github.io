@@ -45,6 +45,13 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/DP/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/codeforces/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -53,13 +60,6 @@
 
     <url>
         <loc>http://yoursite.com/tags/OpenGL/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/DP/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -101,21 +101,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/Wannafly/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/%E4%BA%8C%E5%88%86/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -136,6 +122,27 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/Wannafly/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/%E8%A3%81%E5%89%AA%E7%AE%97%E6%B3%95/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -150,21 +157,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/%E5%88%86%E6%B2%BB/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%8Cmachine-learning/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -192,8 +185,15 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%8Cmachine-learning/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/Java-%E7%AC%94%E8%AF%95%E9%A2%98/</loc>
-        <lastmod>2021-08-02T13:12:44.000Z</lastmod>
+        <lastmod>2021-08-02T13:22:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

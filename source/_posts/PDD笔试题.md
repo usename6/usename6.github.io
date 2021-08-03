@@ -191,7 +191,11 @@ $$ S_{i} = S_{i-2} * C^{KK} + TT * B $$
 化简得到通项：
 $$ S_{i} = S_{0} * C^{K} + T * B $$
 
-故只需要枚举$K$，然后判断$(Q - C^{k}*A) % B == 0$即可。特殊地若C=1，那么只需判断 $ (Q % B) == A $
+故只需要枚举$K$，然后判断
+$$(Q - C^{k}*A) \mod B = 0$$
+即可。
+特殊地若C=1，那么只需判断 
+$$ (Q \mod B) = A $$
 code：
 {% codeblock lang:Java %}
 import java.util.*;

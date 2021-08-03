@@ -8,7 +8,7 @@
     </url>
     
     <url>
-        <loc>http://yoursite.com/about/</loc>
+        <loc>http://yoursite.com/search/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -22,7 +22,7 @@
     </url>
     
     <url>
-        <loc>http://yoursite.com/search/</loc>
+        <loc>http://yoursite.com/about/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

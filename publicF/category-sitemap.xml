@@ -36,21 +36,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/ACM/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/categories/OpenGL/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/categories/C/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -64,14 +50,21 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/ACM/machine-learning/</loc>
+        <loc>http://yoursite.com/categories/ACM/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/ACM/codeforces/</loc>
+        <loc>http://yoursite.com/categories/C/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/OpenGL/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -86,13 +79,6 @@
 
     <url>
         <loc>http://yoursite.com/categories/ACM/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/categories/OpenGL/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -120,13 +106,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6%EF%BC%8C%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6%EF%BC%8C%E8%A3%81%E5%89%AA%E7%AE%97%E6%B3%95/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -134,14 +113,21 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/ACM/machine-learning/K-D-tree/</loc>
+        <loc>http://yoursite.com/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6%EF%BC%8C%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/ACM/machine-learning/%E6%A6%82%E7%8E%87%E5%9B%BE/</loc>
+        <loc>http://yoursite.com/categories/ACM/codeforces/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/ACM/machine-learning/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -169,13 +155,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/categories/ACM/DP/%E7%8A%B6%E5%8E%8BDP/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/categories/ACM/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/LCA/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -184,6 +163,27 @@
 
     <url>
         <loc>http://yoursite.com/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6%EF%BC%8C%E8%A3%81%E5%89%AA%E7%AE%97%E6%B3%95/%E6%9B%B2%E7%BA%BF/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/ACM/machine-learning/K-D-tree/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/ACM/machine-learning/%E6%A6%82%E7%8E%87%E5%9B%BE/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/categories/ACM/DP/%E7%8A%B6%E5%8E%8BDP/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -219,7 +219,7 @@
 
     <url>
         <loc>http://yoursite.com/categories/Java-leetcode/</loc>
-        <lastmod>2021-08-16T08:46:08.000Z</lastmod>
+        <lastmod>2021-08-16T08:50:04.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

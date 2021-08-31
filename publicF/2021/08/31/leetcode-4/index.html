@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/test1.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/test2.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java leetcode,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="usename6" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="leetcode 练习第四周。题目难度很大,因为有点事情拖到今天写blog。">
+<meta name="keywords" content="Java leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-4">
+<meta property="og:url" content="http://yoursite.com/2021/08/31/leetcode-4/index.html">
+<meta property="og:site_name" content="usename6">
+<meta property="og:description" content="leetcode 练习第四周。题目难度很大,因为有点事情拖到今天写blog。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-08-31T14:10:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode-4">
+<meta name="twitter:description" content="leetcode 练习第四周。题目难度很大,因为有点事情拖到今天写blog。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/08/31/leetcode-4/">
+
+
+
+
+
+  <title>leetcode-4 | usename6</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">usename6</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br>
+            
+            ？？？
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-lock"></i> <br>
+            
+            其他
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/31/leetcode-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="usename6">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/usename6.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="usename6">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">leetcode-4</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-31T16:03:29+08:00">
+                2021-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Java leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/08/31/leetcode-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/08/31/leetcode-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>leetcode 练习第四周。<br>题目难度很大,因为有点事情拖到今天写blog。<br><a id="more"></a><br>leetcode 1675<br>题意：<br>你有一个长度为n的数组nums。这个数组存在着任意<strong>大于2</strong>正整数。然后你可以做以下两个操作：<br>a.如果元素是偶数，可以除以2，<br>b.如果元素是奇数，可以乘以2。<br>我们定义数组的偏移量是数组里所有最大的元素和最小元素的差值。<br>问经过若干次操作后，我们可以拥有的最小偏移量是多少？<br>题解：<br>因为有两个操作，总是让我们很烦恼。于是我们可以做先将数组里的所有元素转化为偶数。<br>这样，我们只需要进行一个操作。于是决策就变得很简单了。因为我只能对这个数组的元素<br>进行缩小操作，于是我们只需要贪心地对最后一个元素做缩小操作即可。<br>考察点：Java优先队列编写（heatmap）<br>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumDeviation</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//离散化</span></span><br><span class="line">        <span class="keyword">int</span> n=nums.length;</span><br><span class="line">        PriorityQueue&lt;Integer&gt; maxheap = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;(n, </span><br><span class="line">            <span class="keyword">new</span> Comparator&lt;Integer&gt;() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer o1, Integer o2)</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> o2.compareTo(o1);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">int</span>[] tots = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span> mm=<span class="number">1000000007</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                maxheap.offer(nums[i]*<span class="number">2</span>);</span><br><span class="line">                mm=Math.min(mm,nums[i]*<span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                maxheap.offer(nums[i]);</span><br><span class="line">                mm=Math.min(mm,nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(tots);</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">1000000007</span>;</span><br><span class="line">        <span class="keyword">while</span>(!maxheap.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">int</span> tp = maxheap.poll();</span><br><span class="line">            <span class="comment">//System.out.println("tp = "+tp);</span></span><br><span class="line">            ans=Math.min(ans,tp-mm);</span><br><span class="line">            <span class="comment">//System.out.println("ans = "+ans);</span></span><br><span class="line">            <span class="keyword">if</span>(tp%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                maxheap.offer(tp/<span class="number">2</span>);</span><br><span class="line">               </span><br><span class="line">                mm=Math.min(mm,tp/<span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>leetcode 1808<br>题意：<br>给一个正整数$n$，你要在因子个数为$[1,n]$范围内找到一个含有最多好因子的数，<br>并且返回最多好因子数。<br>好因子数是一个为$n$的数能够整除它所有的质因子。我们需要找到一个数<br>使得他的因子是好因子数的个数最多。<br>题解：<br>我这个题就打了个表找了规律。<br>然后快速幂解决掉了。</p>
+<p>首先这个题可以转化为给出一个正整数m，拆分成n个正整数之和，<br>求他们的最大积<br>这个题可以认真用数学推导一下：</p>
+<script type="math/tex; mode=display">\frac{a_1+a_2+...+a_n}{n} >= sqrt[n]{a_1 * a_2 * ... * a_n}</script><p>很显然，在$a_1 = a_2 = … = a_n$的时候，等式成立。且此时取得最大值。<br>若取$a_1=x$，那么x和最大值关系为：</p>
+<script type="math/tex; mode=display">f(x) = x^{\frac{n}{x}}</script><p>求导后（取对数再求导即可。）<br>得到$x=e$的时候，此时f(x)的值最大。<br>故很显然分成3的时候最好。<br>快速幂即可。<br>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> mod=<span class="number">1000000007</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">qpow_mod</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">long</span> res=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(b&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b%<span class="number">2</span>==<span class="number">1</span>)res=res*a%mod;</span><br><span class="line">            a=a*a%mod;</span><br><span class="line">            b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxNiceDivisors</span><span class="params">(<span class="keyword">int</span> primeFactors)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(primeFactors&lt;<span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> primeFactors;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> n=primeFactors;</span><br><span class="line">        <span class="keyword">long</span> res;</span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">3</span>==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> a=<span class="number">3</span>,b=n/<span class="number">3</span>-<span class="number">1</span>;</span><br><span class="line">            res=qpow_mod((<span class="keyword">long</span>)a,(<span class="keyword">long</span>)b)*<span class="number">4</span>%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n%<span class="number">3</span>==<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> a=<span class="number">3</span>,b=n/<span class="number">3</span>;</span><br><span class="line">            res=qpow_mod((<span class="keyword">long</span>)a,(<span class="keyword">long</span>)b)*<span class="number">2</span>%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> a=<span class="number">3</span>,b=n/<span class="number">3</span>;</span><br><span class="line">            res=qpow_mod((<span class="keyword">long</span>)a,(<span class="keyword">long</span>)b)%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>leetcode 1879<br>题意：<br>给两个数组nums1和nums2。可以从中任意排列nums2.求最大异或和。<br>题解：<br>傻逼状压。<br>定义状态：dp[i]<br>code:<br>dp[i]表示选了nums2的子集。<br>状态转移方程：$dp[(1&lt;<k)|j] = min(dp[1<<k|j],dp[j])$ 然后做一个滚动数组优化。 值得注意：**如何调试状压dp** <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">DebugOutput</span><span class="params">(<span class="keyword">int</span> now,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        String ans=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>((now&amp;(<span class="number">1</span>&lt;&lt;i))!=<span class="number">0</span>)ans=ans+<span class="string">"1"</span>;</span><br><span class="line">            <span class="keyword">else</span> ans=ans+<span class="string">"0"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumXORSum</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums1.length;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[(<span class="number">1</span>&lt;&lt;n)][<span class="number">2</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1000000007</span>;</span><br><span class="line">        <span class="comment">//init</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)dp[<span class="number">1</span>&lt;&lt;i][<span class="number">0</span>]=nums1[<span class="number">0</span>]^nums2[i];</span><br><span class="line">        <span class="comment">//DP</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;n);j++)dp[j][(i%<span class="number">2</span>)]=<span class="number">1000000007</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;n);j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;n;k++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(((<span class="number">1</span>&lt;&lt;k)&amp;j)==<span class="number">0</span>)&#123;</span><br><span class="line">                        <span class="comment">//System.out.println("k="+k);</span></span><br><span class="line">                        <span class="comment">//System.out.println("Pre: dp["+DebugOutput(j,n)+"]["+(i-1)+"] = " + dp[j][(i%2)^1]);</span></span><br><span class="line">                        dp[(<span class="number">1</span>&lt;&lt;k)|j][i%<span class="number">2</span>] = Math.min(dp[(<span class="number">1</span>&lt;&lt;k)|j][i%<span class="number">2</span>], dp[j][(i%<span class="number">2</span>)^<span class="number">1</span>] + (nums1[i]^nums2[k]));</span><br><span class="line">                        <span class="comment">//System.out.println("cur = " + (nums1[i]^nums2[k]));</span></span><br><span class="line">                        <span class="comment">//System.out.println("cur2 = " + dp[j][(i%2)^1]);</span></span><br><span class="line">                        <span class="comment">//System.out.println("tot = " + (dp[j][(i%2)^1] + nums1[i]^nums2[k]));</span></span><br><span class="line">                        <span class="comment">//System.out.println("After: dp["+DebugOutput((1&lt;&lt;k)|j,n)+"]["+i+"] = " + dp[(1&lt;&lt;k)|j][i%2]);</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[(<span class="number">1</span>&lt;&lt;n)-<span class="number">1</span>][(n-<span class="number">1</span>)%<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></k)|j]></p>
+<p>leetcode 1977<br>题意：<br>你写下了若干 正整数 ，并将它们连接成了一个字符串 num 。但是你忘记给这些数字之间加逗号了。你只记得这一列数字是 非递减 的且 没有 任何数字有前导 0 。</p>
+<p>请你返回有多少种可能的 正整数数组 可以得到字符串 num 。由于答案可能很大，将结果对 $10^9 + 7$ 取余 后返回。<br>题解：<br>有点困难的DP，首先考虑最简单的DP.<br>定义状态：dp[i][j]表示最后一个数字是从i开头，j结尾的合法方案数。<br>那么转移：</p>
+<script type="math/tex; mode=display">if num(k,i) <= num(i,j) then</script><script type="math/tex; mode=display">dp[i][j] = (dp[i][j] + dp[k][i]) \mod mod</script><p>这样看起来转移我们只需要枚举k，这样复杂度似乎是O(n^3)的。<br>首先我们假定if的条件是永远可以被满足的。由于我们转移依赖于k，而k是满足$k&lt;=i$的。<br>那么我们可以做第一个优化，枚举优化。即我们维护一个前缀和：</p>
+<script type="math/tex; mode=display">pre[i][j] = \sum_{k=1}^i{pre[k][j]}</script><p>那么转移方程被转化为：</p>
+<script type="math/tex; mode=display">dp[i][j] = (dp[i][j] + pre[i-1][i-1] - pre[2*i-j-2][i-1]) \mod mod</script><p>但是这并不是真实情况的。那么我们就需要比较$num(k,i)$和$num(i,j)$。那么怎么比较呢？<br>首先分类讨论一下：<br>如果<script type="math/tex">len(k,i) < len(i,j)</script>，显然满足条件。<br>而如果<script type="math/tex">len(k,i) > len(i,j)</script>，显然不满足条件，这也算我们DP的边界条件。<br>那么<script type="math/tex">len(k,i) = len(i,j)</script>我们似乎又得扫描一遍数位进行比较，这个复杂度又是O(n)。<br>为了能够O(1)判断，于是我们再去维护一个东西。因为我们发现，对于长度相同的数字，<br>我们只需要比较它们的非公共部分即可。所以我们只需要找到num(i,j)和num(k,i)第一次<br>出现非公共部分的地方然后O(1)比较就行。<br>这时候第一个从我们脑海中闪现的就是最大公共子串。<br>于是我们还需要再维护一个lcp，$lcp[i][j]$表示以i为开头的后缀和以j为开头的后缀最大公共子串长度。<br>其转移方程为: </p>
+<script type="math/tex; mode=display">if num[i] == num[j] then</script><script type="math/tex; mode=display">lcp[i][j] = lcp[i+1][j+1]</script><p>于是对于$len(i,j) == len(k,i)$的情况，我们只需要考虑num[i+lcp[k][i]]和num[k+lcp[k][i]]的情况即可。<br>转移方程变化为两段式：</p>
+<script type="math/tex; mode=display">dp[i][j] = (dp[i][j] + pre[i-1][i-1] - pre[2*i-j-1][i-1]) \mod mod</script><script type="math/tex; mode=display">if num(i+lcp[2*i-j-1][i]) > num(2*i-j-1+lcp[2*i-j-1][i]) then</script><script type="math/tex; mode=display">dp[i][j] = (dp[i][j] + pre[2*i-j-1][i-1]-pre[2*i-j-2][i-1]) \mod mod</script><p>答案是pre[n][n]</p>
+<p>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numberOfCombinations</span><span class="params">(String num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(num.charAt(<span class="number">0</span>)==<span class="string">'0'</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n=num.length();</span><br><span class="line">        <span class="comment">//pre LCP</span></span><br><span class="line">        <span class="keyword">int</span>[][] lcp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">2</span>][n+<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=n;j&gt;=<span class="number">1</span>;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(num.charAt(i-<span class="number">1</span>)==num.charAt(j-<span class="number">1</span>))&#123;</span><br><span class="line">                    lcp[i][j]=lcp[i+<span class="number">1</span>][j+<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//pre init DP</span></span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span>[][] pre = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)dp[<span class="number">1</span>][i]=pre[<span class="number">1</span>][i]=<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//System.out.println("n="+n);</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=j;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(num.charAt(i-<span class="number">1</span>)==<span class="string">'0'</span>)&#123;</span><br><span class="line">                    pre[i][j]=(pre[i-<span class="number">1</span>][j]+dp[i][j])%mod;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                dp[i][j]=(dp[i][j]+pre[i-<span class="number">1</span>][i-<span class="number">1</span>]-pre[Math.max(<span class="number">2</span>*i-j-<span class="number">1</span>,<span class="number">0</span>)][i-<span class="number">1</span>])%mod;</span><br><span class="line">                <span class="comment">//System.out.println("pre1 = " + (Math.max(2*i-j-1,0)));</span></span><br><span class="line">                <span class="keyword">if</span>(<span class="number">2</span>*i-j-<span class="number">1</span>&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">int</span> tag=<span class="number">0</span>;</span><br><span class="line">                    <span class="comment">//System.out.println("("+(2*i-j-1)+","+i+")");</span></span><br><span class="line">                    <span class="keyword">int</span> tmp = lcp[<span class="number">2</span>*i-j-<span class="number">1</span>][i];</span><br><span class="line">                    <span class="keyword">if</span>(tmp&gt;=j-i+<span class="number">1</span>)tag=<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(tmp&lt;j-i+<span class="number">1</span>&amp;&amp;num.charAt(<span class="number">2</span>*i-j-<span class="number">1</span>+tmp-<span class="number">1</span>)&lt;num.charAt(i+tmp-<span class="number">1</span>))tag=<span class="number">1</span>;</span><br><span class="line">                    dp[i][j]=(dp[i][j]+(pre[<span class="number">2</span>*i-j-<span class="number">1</span>][i-<span class="number">1</span>]-pre[<span class="number">2</span>*i-j-<span class="number">2</span>][i-<span class="number">1</span>])*tag)%mod;</span><br><span class="line">                    <span class="comment">//System.out.println("pre2 = " + (pre[2*i-j-1][j-1]-pre[2*i-j-2][j-1])*tag);</span></span><br><span class="line">                &#125;</span><br><span class="line">                pre[i][j]=(pre[i-<span class="number">1</span>][j]+dp[i][j])%mod;</span><br><span class="line">                <span class="comment">//System.out.println("dp["+i+"]"+"["+j+"] = "+dp[i][j]);</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre[n][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>leetcode 1982<br>题意：<br>存在一个未知数组需要你进行还原，给你一个整数 n 表示该数组的长度。另给你一个数组 sums ，由未知数组中全部 $2^n$ 个 子集的和 组成（子集中的元素没有特定的顺序）。</p>
+<p>返回一个长度为 n 的数组 ans 表示还原得到的未知数组。如果存在 多种 答案，只需返回其中 任意一个 。</p>
+<p>如果可以由数组 arr 删除部分元素（也可能不删除或全删除）得到数组 sub ，那么数组 sub 就是数组 arr 的一个 子集 。sub 的元素之和就是 arr 的一个 子集的和 。一个空数组的元素之和为 0 。</p>
+<p>题解：<br>这个题非常的难。我们首先思考一个最好搞的情况。<br>如果ans全是正整数，那么这里前缀和一定具有单调递增的特性。这里我们可以知道如果我们每次从arr取出最小两个数<br>分别记为$x$和$y$,其中$y&gt;x$,那么我们可以知道:</p>
+<script type="math/tex; mode=display">d = y - x</script><p>很显然d是ans里一个最小的一个元素。然后我们可以把x删掉，然后再去重复上述操作。直到结束。</p>
+<p>然后，我们将上述条件拓展到既有正整数也有负整数的情况。那么这时我们取出来的x和y，很有可能存在两个情况：<br>第一种情况：</p>
+<script type="math/tex; mode=display">x + a_i = y , a_i >= 0</script><p>第二种情况：</p>
+<script type="math/tex; mode=display">y + a_i = x , a_i < 0</script><p>那么此时我们就需要判断应该让$a_i$取什么值合法。这里为了方便讨论，我们定义:$d = y - x$。<br>于是我们用d将数组进行切分：分成两份arr1和arr2，其中arr1和arr2满足以下关系：</p>
+<script type="math/tex; mode=display">\forall i, \exists j, arr2[i] = arr[j] + d</script><p>经过arr1或arr2其中有个数组是除了$a_i$序列和子集。<br>首先arr是存在0,假设分开后的数组只存在这样的情况：0只在arr1或arr2中出现。<br>那么就有两种情况：<br>(1)0在arr1中出现。那么就说明$a_i=d$，那么接下来剩余的值我们只需要在arr1中找。<br>(2)0在arr2中出现。那么就说明$a_i=-d$，那么接下来剩余的值我需要在arr2中找。<br>我们通过这样的方式迭代，一定能够得到最后的结果。</p>
+<p>但是如果arr1和arr2两边都存在0.那么该怎么选。这里可以给出结论，不论选择怎么样的情况都可以。<br>这可以证明这是等价的。<br>证明：<br>因为有两个0，必然存在两个情况：<br>情况1：<br>0是空集的序列的和。<br>情况2：</p>
+<script type="math/tex; mode=display">o_1 + o_2 + ... + o_k + o_{k+1} = 0</script><p>假设我们认为真正的0存在于arr1中，那么显然我们就先选arr1。如果真正的0不存在arr1中，那么我们<br>的选择还是否正确。<br>如果真正的0不存在arr1中，我们还选了arr1,就相当于把$o<em>1,o_2,…,o</em>{k+1}$全部变成了负数。<br>这里为了方便讨论我们假设$o<em>{k+1} = a</em>{i}$。那么我们需要假设这样情况形成的序列ans是否还满足arr。<br>我们这里定义一个A，其中A满足：</p>
+<script type="math/tex; mode=display">A = \sum_{i \in O}a_i</script><p>那么我这里$\forall i \in [1,n]$，必然满足$sum[i]-A \in sum$<br>故证明完毕。<br>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cc;</span><br><span class="line">    <span class="keyword">int</span>[] ans=<span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span>[] sums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span>[] s = <span class="keyword">new</span> <span class="keyword">int</span>[n/<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">int</span>[] t = <span class="keyword">new</span> <span class="keyword">int</span>[n/<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>,left=<span class="number">0</span>,right=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[] vis = <span class="keyword">new</span> <span class="keyword">boolean</span>[n];</span><br><span class="line">        <span class="keyword">int</span> d=sums[<span class="number">1</span>]-sums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">boolean</span> flag=<span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(cnt&lt;n)&#123;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;n&amp;&amp;vis[left])left++;</span><br><span class="line">            <span class="keyword">if</span>(left&gt;=n)<span class="keyword">break</span>;</span><br><span class="line">            vis[left]=<span class="keyword">true</span>;</span><br><span class="line">            s[cnt]=sums[left];</span><br><span class="line">            <span class="keyword">if</span>(sums[left]==<span class="number">0</span>)flag=<span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">while</span>(right&lt;n&amp;&amp;(vis[right]||(sums[right]-sums[left]!=d)))right++;</span><br><span class="line">            <span class="keyword">if</span>(right&gt;=n)<span class="keyword">break</span>;</span><br><span class="line">            vis[right]=<span class="keyword">true</span>;</span><br><span class="line">            t[cnt]=sums[right];</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">            ans[cc++]=d;</span><br><span class="line">            dfs(n/<span class="number">2</span>,s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ans[cc++]=-d;</span><br><span class="line">            dfs(n/<span class="number">2</span>,t);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] recoverArray(<span class="keyword">int</span> n, <span class="keyword">int</span>[] sums) &#123;</span><br><span class="line">        Arrays.sort(sums);</span><br><span class="line">        ans = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        dfs(sums.length,sums);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java-leetcode/" rel="tag"># Java leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/20/leetcode-3/" rel="next" title="leetcode-3">
+                <i class="fa fa-chevron-left"></i> leetcode-3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/usename6.jpg" alt="usename6">
+            
+              <p class="site-author-name" itemprop="name">usename6</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">usename6</span> <br>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'jU5UdMSQrXVD7Sr8GKoT4QK1-gzGzoHsz',
+        appKey: 'FIrs0HPc0el5iHx0OIGF3pxV',
+        placeholder: '大佬们轻喷',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+<!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

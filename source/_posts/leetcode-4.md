@@ -76,7 +76,7 @@ leetcode 1808
 首先这个题可以转化为给出一个正整数m，拆分成n个正整数之和，
 求他们的最大积
 这个题可以认真用数学推导一下：
-$$\frac{a_1+a_2+...+a_n}{n} >= sqrt[n]{a_1 * a_2 * ... * a_n}$$
+$$\frac{a_1+a_2+...+a_n}{n} >= \sqrt[n]{a_{1} * a_{2} * ... * a_{n}}$$
 很显然，在$a_1 = a_2 = ... = a_n$的时候，等式成立。且此时取得最大值。
 若取$a_1=x$，那么x和最大值关系为：
 $$f(x) = x^{\frac{n}{x}}$$
@@ -129,9 +129,10 @@ leetcode 1879
 定义状态：dp[i]
 code:
 dp[i]表示选了nums2的子集。
-状态转移方程：$dp[(1<<k)|j] = min(dp[1<<k|j],dp[j])$
+状态转移方程：
+$$dp[(1<<k)|j] = min(dp[1<<k|j],dp[j])$$
 然后做一个滚动数组优化。
-值得注意：**如何调试状压DP**
+值得注意：如何调试状压DP。
 {% codeblock lang:Java %}
 class Solution {
     String DebugOutput(int now,int n){
@@ -180,13 +181,13 @@ leetcode 1977
 定义状态：dp[i][j]表示最后一个数字是从i开头，j结尾的合法方案数。
 那么转移：
 $$if num(k,i) <= num(i,j) then$$
-$$dp[i][j] = (dp[i][j] + dp[k][i]) \mod mod$$
+$$dp[i][j] = (dp[i][j] + dp[k][i]) \mod MOD$$
 这样看起来转移我们只需要枚举k，这样复杂度似乎是O(n^3)的。
 首先我们假定if的条件是永远可以被满足的。由于我们转移依赖于k，而k是满足$k<=i$的。
 那么我们可以做第一个优化，枚举优化。即我们维护一个前缀和：
 $$pre[i][j] = \sum_{k=1}^i{pre[k][j]} $$
 那么转移方程被转化为：
-$$dp[i][j] = (dp[i][j] + pre[i-1][i-1] - pre[2*i-j-2][i-1]) \mod mod$$
+$$dp[i][j] = (dp[i][j] + pre[i-1][i-1] - pre[2*i-j-2][i-1]) \mod MOD$$
 但是这并不是真实情况的。那么我们就需要比较$num(k,i)$和$num(i,j)$。那么怎么比较呢？
 首先分类讨论一下：
 如果$$len(k,i) < len(i,j)$$，显然满足条件。
@@ -202,9 +203,9 @@ $$if num[i] == num[j] then$$
 $$lcp[i][j] = lcp[i+1][j+1]$$
 于是对于$len(i,j) == len(k,i)$的情况，我们只需要考虑num[i+lcp[k][i]]和num[k+lcp[k][i]]的情况即可。
 转移方程变化为两段式：
-$$dp[i][j] = (dp[i][j] + pre[i-1][i-1] - pre[2*i-j-1][i-1]) \mod mod$$
+$$dp[i][j] = (dp[i][j] + pre[i-1][i-1] - pre[2*i-j-1][i-1]) \mod MOD$$
 $$ if num(i+lcp[2*i-j-1][i]) > num(2*i-j-1+lcp[2*i-j-1][i]) then$$
-$$dp[i][j] = (dp[i][j] + pre[2*i-j-1][i-1]-pre[2*i-j-2][i-1]) \mod mod$$
+$$dp[i][j] = (dp[i][j] + pre[2*i-j-1][i-1]-pre[2*i-j-2][i-1]) \mod MOD$$
 答案是pre[n][n]
 
 code:
@@ -295,8 +296,10 @@ $$\forall i, \exists j, arr2[i] = arr[j] + d$$
 $$o_1 + o_2 + ... + o_k + o_{k+1} = 0$$
 假设我们认为真正的0存在于arr1中，那么显然我们就先选arr1。如果真正的0不存在arr1中，那么我们
 的选择还是否正确。
-如果真正的0不存在arr1中，我们还选了arr1,就相当于把$o_1,o_2,...,o_{k+1}$全部变成了负数。
-这里为了方便讨论我们假设$o_{k+1} = a_{i}$。那么我们需要假设这样情况形成的序列ans是否还满足arr。
+如果真正的0不存在arr1中，我们还选了arr1,就相当于把$$o_1,o_2,...,o_{k+1}$$全部变成了负数。
+这里为了方便讨论我们假设:
+$$o_{k+1} = a_{i}$$
+那么我们需要假设这样情况形成的序列ans是否还满足arr。
 我们这里定义一个A，其中A满足：
 $$A = \sum_{i \in O}a_i$$
 那么我这里$\forall i \in [1,n]$，必然满足$sum[i]-A \in sum$

@@ -24,14 +24,21 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/codeforces/</loc>
+        <loc>http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
+        <loc>http://yoursite.com/tags/DP/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/codeforces/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -52,28 +59,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/DP/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/OpenGL/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/machine-learning/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/K-D-tree/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -101,6 +87,27 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/tags/machine-learning/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/K-D-tree/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/Wannafly/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/hexo/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -122,14 +129,14 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/Wannafly/</loc>
+        <loc>http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
+        <loc>http://yoursite.com/tags/%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -150,21 +157,14 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E5%88%86%E6%B2%BB/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/%E6%A6%82%E7%8E%87%E5%9B%BE/</loc>
+        <lastmod>2021-08-02T07:31:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E5%88%86%E6%B2%BB/</loc>
         <lastmod>2021-08-02T07:31:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -200,7 +200,7 @@
 
     <url>
         <loc>http://yoursite.com/tags/Java-leetcode/</loc>
-        <lastmod>2021-08-31T14:10:22.000Z</lastmod>
+        <lastmod>2021-08-31T14:20:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

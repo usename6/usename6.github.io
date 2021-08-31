@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/test1.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/test2.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java leetcode,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="usename6" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="树形DP和排列组合是弱项。还有并查集删边的乱搞图论也是弱项。">
+<meta name="keywords" content="Java leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-3">
+<meta property="og:url" content="http://yoursite.com/2021/08/20/leetcode-3/index.html">
+<meta property="og:site_name" content="usename6">
+<meta property="og:description" content="树形DP和排列组合是弱项。还有并查集删边的乱搞图论也是弱项。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-08-20T02:43:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode-3">
+<meta name="twitter:description" content="树形DP和排列组合是弱项。还有并查集删边的乱搞图论也是弱项。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/08/20/leetcode-3/">
+
+
+
+
+
+  <title>leetcode-3 | usename6</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">usename6</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br>
+            
+            ？？？
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-lock"></i> <br>
+            
+            其他
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/20/leetcode-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="usename6">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/usename6.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="usename6">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">leetcode-3</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-20T09:48:44+08:00">
+                2021-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Java leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/08/20/leetcode-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/08/20/leetcode-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>树形DP和排列组合是弱项。<br>还有并查集删边的乱搞图论也是弱项。<br><a id="more"></a><br>leetcode 1916 <strong>好题</strong><br>题意：给出一根有根树（有向图）。让你找出拓扑排序总的方案数。<br>题解：<br>在这里需要知道一个前置的排列组合的知识点：<br>工厂有$n$个不同种类的零件，每个同种类零件外形相同。其中第$i$个零件有$a_{i}$个。<br>那么将这些零件摆成一排的方案数:</p>
+<script type="math/tex; mode=display">\frac{(a_1 + a_2 + ... + a_n)!}{(a_{1}!+a_{2}!+...+a_{n}!)}</script><p>状态设置: $dp[i]$表示以i为根的子树的拓扑排序的方案数<br>状态转移：<br>先从一个最简单的情况考虑状态转移方程：<br>当前子树的子树间不存在交叉的情况：</p>
+<script type="math/tex; mode=display">dp[u]=\prod_{i=1}^m{dp[v_i]}</script><p>然后，我们可以把原问题拆分成两个问题：<br>(1)首先我们先选出$n$个不同种类的零件，然后计算他们的排列数（拓扑序）的数量。<br>然后将这些拓扑序组合起来，得到的方案数如下：</p>
+<script type="math/tex; mode=display">dp[u]=\prod_{i=1}^m{dp[v_i]}</script><p>(2)然后我们考虑将这些不同零件排成一排的方案数，首先预处理出零件个数，<br>这里需要通过开一个数组实现，即$cnt[i]$表示以i为根的子树的节点个数。<br>那么根据前置知识，这里方案数如下：</p>
+<script type="math/tex; mode=display">\frac{(cnt_{v_1} + cnt_{v_2} + ... + cnt_{v_n})!}{(cnt_{v_1}!+cnt_{v_2}!+...+cnt_{v_n}!)}</script><p>又因为：</p>
+<script type="math/tex; mode=display">cnt[u]=\sum_{i=1}^n{cnt_{v_i}}</script><p>所以该式子可以化简为：</p>
+<script type="math/tex; mode=display">\frac{(cnt_u-1)!}{(cnt_{v_1}!+cnt_{v_2}!+...+cnt_{v_n}!)}</script><p>整理得到最后的转移方程为：</p>
+<script type="math/tex; mode=display">dp[u]=\prod_{i=1}^m{dp[v_i]} \times \frac{(cnt_u-1)!}{(cnt_{v_1}!+cnt_{v_2}!+...+cnt_{v_n}!)}</script><p>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Edge</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> v,next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] dp; <span class="keyword">int</span>[] cnt;</span><br><span class="line">    <span class="keyword">int</span> n,tot;Edge[] e;</span><br><span class="line">    <span class="keyword">int</span>[] head;</span><br><span class="line">    <span class="keyword">long</span> mod=<span class="number">1000000007</span>;</span><br><span class="line">    <span class="keyword">int</span>[] JC;<span class="keyword">int</span>[] inv;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">        JC=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];inv=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        JC[<span class="number">0</span>]=inv[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            JC[i]=(<span class="keyword">int</span>)((<span class="keyword">long</span>)JC[i-<span class="number">1</span>]*(<span class="keyword">long</span>)i%mod);</span><br><span class="line">            inv[i]=(<span class="keyword">int</span>)qpow_mod((<span class="keyword">long</span>)JC[i],mod-<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">qpow_mod</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> nn)</span></span>&#123;</span><br><span class="line">        <span class="keyword">long</span> res=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(nn&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nn%<span class="number">2</span>==<span class="number">1</span>)res=res*a%mod;</span><br><span class="line">            nn&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">            a=(a*a)%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">        e[tot] = <span class="keyword">new</span> Edge();</span><br><span class="line">        e[tot].v = v;</span><br><span class="line">        e[tot].next = head[u];</span><br><span class="line">        head[u] = tot++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> pre)</span></span>&#123;</span><br><span class="line">        dp[u]=<span class="number">1</span>;</span><br><span class="line">        cnt[u]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];i!=-<span class="number">1</span>;i=e[i].next)&#123;</span><br><span class="line">            <span class="keyword">int</span> v=e[i].v;</span><br><span class="line">            <span class="keyword">if</span>(pre!=v)&#123;</span><br><span class="line">                dfs(v,u);</span><br><span class="line">                cnt[u]+=cnt[v];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cnt[u]&gt;<span class="number">0</span>)dp[u]=(<span class="keyword">int</span>)((<span class="keyword">long</span>)dp[u]*(<span class="keyword">long</span>)JC[cnt[u]]%mod);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];i!=-<span class="number">1</span>;i=e[i].next)&#123;</span><br><span class="line">            <span class="keyword">int</span> v=e[i].v;</span><br><span class="line">            <span class="keyword">if</span>(pre!=v)&#123;</span><br><span class="line">                dp[u]=(<span class="keyword">int</span>)((<span class="keyword">long</span>)dp[u]*(<span class="keyword">long</span>)dp[v]%mod);</span><br><span class="line">                dp[u]=(<span class="keyword">int</span>)((<span class="keyword">long</span>)dp[u]*(<span class="keyword">long</span>)inv[cnt[v]]%mod);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cnt[u]+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">waysToBuildRooms</span><span class="params">(<span class="keyword">int</span>[] prevRoom)</span> </span>&#123;</span><br><span class="line">        n = prevRoom.length;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">int</span> rt=<span class="number">0</span>;</span><br><span class="line">        tot = <span class="number">0</span>;</span><br><span class="line">        dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        e = <span class="keyword">new</span> Edge[n+<span class="number">1</span>];</span><br><span class="line">        head = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        cnt = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)head[i]=-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(prevRoom[i]==-<span class="number">1</span>)rt=i;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                add(prevRoom[i],i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(rt,rt);</span><br><span class="line">        <span class="keyword">return</span> dp[rt];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>其中：处理逆元（费马小定理可以做模板）。以及链式前向星的建立也可以做模板。</p>
+<p>leetcode 1766<br>题意：给一个带点权的无根树（无向图）。这里指定根节点为n。对于该树的每个节点，<br>你需要找到一个和他互质的最近的祖先节点，如果没有则为-1。<br>题解：<br>傻逼题，这道题只需要注意到点权不会超过50，那这样只需要dfs一遍，<br>在这期间需要维护一下每个点权的最后位置在哪，然后扫一遍用gcd check一下即可。<br>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Edge</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> v,next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Edge[] e;</span><br><span class="line">    <span class="keyword">int</span>[] head;<span class="keyword">int</span> tot,n,m,cnt;</span><br><span class="line">    <span class="keyword">int</span>[] ans;</span><br><span class="line">    <span class="keyword">int</span>[] dis;</span><br><span class="line">    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; pos;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b==<span class="number">0</span>?a:gcd(b,a%b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">        e[tot]=<span class="keyword">new</span> Edge();</span><br><span class="line">        e[tot].v=v;</span><br><span class="line">        e[tot].next=head[u];</span><br><span class="line">        head[u]=tot++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> pre,<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(u!=pre)dis[u]=dis[pre]+<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//if(u==2)System.out.println("u = "+nums[2]+", pre = "+nums[17]);</span></span><br><span class="line">        <span class="keyword">int</span> mm=<span class="number">100006</span>,k=-<span class="number">1</span>,tt=nums[u];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">50</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> sz=pos.get(i).size();</span><br><span class="line">            <span class="keyword">if</span>(gcd(tt,i)!=<span class="number">1</span>)<span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(sz!=<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> pp=pos.get(i).get(sz-<span class="number">1</span>);</span><br><span class="line">                <span class="comment">//if(u==2)System.out.println("pos["+i+"] = "+pp);</span></span><br><span class="line">                <span class="keyword">if</span>(dis[u]-dis[pp]&lt;mm)&#123;</span><br><span class="line">                    mm=dis[u]-dis[pp];</span><br><span class="line">                    k=pp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans[u]=k;</span><br><span class="line">        pos.get(nums[u]).add(u);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=head[u];i!=-<span class="number">1</span>;i=e[i].next)&#123;</span><br><span class="line">            <span class="keyword">int</span> v=e[i].v;</span><br><span class="line">            <span class="keyword">if</span>(v!=pre)&#123;</span><br><span class="line">                dfs(v,u,nums);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        pos.get(nums[u]).remove(pos.get(nums[u]).size()-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] getCoprimes(<span class="keyword">int</span>[] nums, <span class="keyword">int</span>[][] edges) &#123;</span><br><span class="line">        n=nums.length;</span><br><span class="line">        m=edges.length;</span><br><span class="line">        head=<span class="keyword">new</span> <span class="keyword">int</span>[n];tot=<span class="number">0</span>;</span><br><span class="line">        e=<span class="keyword">new</span> Edge[(m+<span class="number">1</span>)*<span class="number">2</span>];</span><br><span class="line">        ans=<span class="keyword">new</span> <span class="keyword">int</span>[n]; dis=<span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)head[i]=-<span class="number">1</span>;</span><br><span class="line">        pos=<span class="keyword">new</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">50</span>;i++)&#123;</span><br><span class="line">            ArrayList&lt;Integer&gt; arr=<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">            pos.add(arr);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] edge:edges)&#123;</span><br><span class="line">            <span class="keyword">int</span> u=edge[<span class="number">0</span>],v=edge[<span class="number">1</span>];</span><br><span class="line">            add(u,v);</span><br><span class="line">            add(v,u);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(<span class="number">0</span>,<span class="number">0</span>,nums);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>leetcode 1627<br>题意：给出1~n的n个数，给出m个查询，每个查询包含两个点，需要判断这两个点是否相连。<br>相连的条件如下：</p>
+<script type="math/tex; mode=display">gcd(x,y) > threshold</script><p>题解：<br>暴力，对于每个点，暴力处理它所有的因数，对于每个因数我去维护它最后出现的数是什么。<br>然后把这个数和这个点连边，用并查集优化即可。<br>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] f;</span><br><span class="line">    <span class="keyword">int</span>[] cc;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x==f[x]?x:(f[x]=find(f[x]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union_set</span><span class="params">(<span class="keyword">int</span> s1,<span class="keyword">int</span> s2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> f1=find(s1),f2=find(s2);</span><br><span class="line">        <span class="keyword">if</span>(f1!=f2)</span><br><span class="line">            f[f2]=f1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Boolean&gt; <span class="title">areConnected</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> threshold, <span class="keyword">int</span>[][] queries)</span> </span>&#123;</span><br><span class="line">        f = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        cc = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            f[i]=i;</span><br><span class="line">            <span class="keyword">int</span> now=i;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j*j&lt;=i;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(now%j==<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(cc[j]&gt;<span class="number">0</span>&amp;&amp;j&gt;threshold)&#123;</span><br><span class="line">                        union_set(i,cc[j]);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">//System.out.println("pre:cc["+j+"]="+cc[j]);</span></span><br><span class="line">                    cc[j]=i;</span><br><span class="line">                    <span class="comment">//System.out.println("after:cc["+j+"]="+cc[j]);</span></span><br><span class="line">                    <span class="keyword">if</span>(cc[i/j]&gt;<span class="number">0</span>&amp;&amp;(i/j)&gt;threshold)&#123;</span><br><span class="line">                        union_set(i,cc[i/j]);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">//System.out.println("pre2:cc["+(i/j)+"]="+cc[i/j]);</span></span><br><span class="line">                    cc[i/j]=i;</span><br><span class="line">                    <span class="comment">//System.out.println("after2:cc["+(i/j)+"]="+cc[i/j]);</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Boolean&gt; ans=<span class="keyword">new</span> ArrayList&lt;Boolean&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] query:queries)&#123;</span><br><span class="line">            <span class="keyword">int</span> x=query[<span class="number">0</span>],y=query[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(find(x)!=find(y))</span><br><span class="line">                ans.add(<span class="keyword">false</span>);</span><br><span class="line">            <span class="keyword">else</span> ans.add(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>leetcode 1579  <strong>好题</strong><br>题意：一个无向图，有三个类型的边，一个只有Alice能遍历，<br>一个只有Bob能遍历，另外一个是两个都能遍历。问你最少删掉<br>多少边可以保证Alice和Bob从任意节点出发，都可达任意其他节点。<br>题解：<br>贪心+并查集。<br>首先可以证明的是我们先得保留公共边，如果u和v在两个不同联通分量上，<br>保留公共边总比添加两个条非公共边。<br>于是我们用并查集判断我们当前要加入的边两个端点是否属于同一个联通分量，<br>不属于则添加，但优先插入公共边即可。<br>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] f1,f2;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find1</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x==f1[x]?x:(f1[x]=find1(f1[x]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find2</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x==f2[x]?x:(f2[x]=find2(f2[x]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxNumEdgesToRemove</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[][] edges)</span> </span>&#123;</span><br><span class="line">        Arrays.sort(edges, <span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] o1,<span class="keyword">int</span>[] o2)</span></span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(o1[<span class="number">0</span>]==o2[<span class="number">0</span>])<span class="keyword">return</span> o1[<span class="number">1</span>]-o2[<span class="number">1</span>]; <span class="comment">//第二个元素升序</span></span><br><span class="line">                <span class="keyword">return</span> o2[<span class="number">0</span>]-o1[<span class="number">0</span>]; <span class="comment">//第一个元素升序</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        f1=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        f2=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)f1[i]=f2[i]=i;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>,tot1=<span class="number">0</span>,tot2=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] edge:edges)&#123;</span><br><span class="line">            <span class="keyword">int</span> type=edge[<span class="number">0</span>],u=edge[<span class="number">1</span>],v=edge[<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">if</span>(type==<span class="number">3</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> p1=find1(u),p2=find1(v);</span><br><span class="line">                <span class="keyword">if</span>(p1!=p2)&#123;</span><br><span class="line">                    f1[p2]=p1;</span><br><span class="line">                    tot1++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> ans++;</span><br><span class="line">                p1=find2(u);p2=find2(v);</span><br><span class="line">                <span class="keyword">if</span>(p1!=p2)&#123;</span><br><span class="line">                    f2[p2]=p1;</span><br><span class="line">                    tot2++;</span><br><span class="line">                    <span class="comment">//System.out.println(Arrays.toString(edge));</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(type==<span class="number">2</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> p1=find2(u),p2=find2(v);</span><br><span class="line">                <span class="keyword">if</span>(p1!=p2)&#123;</span><br><span class="line">                    f2[p2]=p1;</span><br><span class="line">                    tot2++;</span><br><span class="line">                    <span class="comment">//System.out.println(Arrays.toString(edge));</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> ans++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(type==<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> p1=find1(u),p2=find1(v);</span><br><span class="line">                <span class="keyword">if</span>(p1!=p2)&#123;</span><br><span class="line">                    f1[p2]=p1;</span><br><span class="line">                    tot1++;</span><br><span class="line">                    <span class="comment">//System.out.println(Arrays.toString(edge));</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> ans++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tot1!=n-<span class="number">1</span>||tot2!=n-<span class="number">1</span>)<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>leetcode 1970<br>题意：给出个$row \times col$的地图，让你判断最后通过陆地是天数<br>题解：<br>答案显然具有单调性，于是二分答案，check用BFScheck即可。<br>暴力即可。<br>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x,y,step;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> xx,<span class="keyword">int</span> yy)</span></span>&#123;</span><br><span class="line">        x=xx;y=yy;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] dx=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span>[] dy=&#123;<span class="number">1</span>,-<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> row,<span class="keyword">int</span> col,<span class="keyword">int</span> mid,<span class="keyword">int</span>[][] cells)</span></span>&#123;</span><br><span class="line">        <span class="comment">//System.out.println("mid="+mid);</span></span><br><span class="line">        <span class="keyword">int</span>[][] D=<span class="keyword">new</span> <span class="keyword">int</span>[row+<span class="number">1</span>][col+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span>[][] step=<span class="keyword">new</span> <span class="keyword">int</span>[row+<span class="number">1</span>][col+<span class="number">1</span>];</span><br><span class="line">        Queue&lt;Point&gt; q=<span class="keyword">new</span> LinkedList&lt;Point&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;mid;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> markX=cells[i][<span class="number">0</span>],markY=cells[i][<span class="number">1</span>];</span><br><span class="line">            D[markX][markY]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=col;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(D[<span class="number">1</span>][i]!=<span class="number">1</span>)&#123;</span><br><span class="line">                q.offer(<span class="keyword">new</span> Point(<span class="number">1</span>,i));</span><br><span class="line">                step[<span class="number">1</span>][i]=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!q.isEmpty())&#123;</span><br><span class="line">            Point tp=q.peek();</span><br><span class="line">            q.poll();</span><br><span class="line">            <span class="comment">//System.out.println("pre:step["+tp.x+"]["+tp.y+"]="+step[tp.x][tp.y]);</span></span><br><span class="line">            <span class="keyword">int</span> day=step[tp.x][tp.y]+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> xx=tp.x+dx[i];</span><br><span class="line">                <span class="keyword">int</span> yy=tp.y+dy[i];</span><br><span class="line">                <span class="keyword">if</span>(xx&lt;<span class="number">1</span>||xx&gt;row||yy&lt;<span class="number">1</span>||yy&gt;col)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(D[xx][yy]==<span class="number">1</span>)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(step[xx][yy]==<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(xx==row)<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                    step[xx][yy]=step[tp.x][tp.y]+<span class="number">1</span>;</span><br><span class="line">                    <span class="comment">//System.out.println("cur:step["+xx+"]["+yy+"]="+step[xx][yy]);</span></span><br><span class="line">                    q.offer(<span class="keyword">new</span> Point(xx,yy));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">latestDayToCross</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span>[][] cells)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">1</span>,r=cells.length,ans=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(check(row,col,mid,cells))&#123;</span><br><span class="line">                ans=mid;</span><br><span class="line">                l=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> r=mid-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(l==r&amp;&amp;check(row,col,l,cells))ans=l;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java-leetcode/" rel="tag"># Java leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/16/Manacher/" rel="next" title="Manacher算法">
+                <i class="fa fa-chevron-left"></i> Manacher算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/usename6.jpg" alt="usename6">
+            
+              <p class="site-author-name" itemprop="name">usename6</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">usename6</span> <br>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'jU5UdMSQrXVD7Sr8GKoT4QK1-gzGzoHsz',
+        appKey: 'FIrs0HPc0el5iHx0OIGF3pxV',
+        placeholder: '大佬们轻喷',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+<!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+</html>

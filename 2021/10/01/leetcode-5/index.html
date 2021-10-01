@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/test1.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/test2.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java leetcode,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="usename6" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="leetcode 第五次练习，补上25天的笔记。">
+<meta name="keywords" content="Java leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-5">
+<meta property="og:url" content="http://yoursite.com/2021/10/01/leetcode-5/index.html">
+<meta property="og:site_name" content="usename6">
+<meta property="og:description" content="leetcode 第五次练习，补上25天的笔记。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-10-01T13:23:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode-5">
+<meta name="twitter:description" content="leetcode 第五次练习，补上25天的笔记。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/10/01/leetcode-5/">
+
+
+
+
+
+  <title>leetcode-5 | usename6</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">usename6</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br>
+            
+            ？？？
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-lock"></i> <br>
+            
+            其他
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/01/leetcode-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="usename6">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/usename6.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="usename6">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">leetcode-5</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-10-01T20:55:44+08:00">
+                2021-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Java leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/10/01/leetcode-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/10/01/leetcode-5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>leetcode 第五次练习，补上25天的笔记。<br><a id="more"></a><br>leetcode 493<br>题意：<br>给定一个数组 nums ，如果 i &lt; j 且 nums[i] &gt; 2*nums[j] 我们就将 (i, j) 称作一个重要翻转对。</p>
+<p>你需要返回给定数组中的重要翻转对的数量。</p>
+<p>题解：<br>权值树状数组的裸题，离线+离散化预处理。<br>然后维护一下$nums[i]$的权值树状数组即可。<br>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BIT</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] tree;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BIT</span><span class="params">(<span class="keyword">int</span> nn)</span></span>&#123;</span><br><span class="line">        n = nn;</span><br><span class="line">        tree = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(x&lt;=n)&#123;</span><br><span class="line">            tree[x] += d;</span><br><span class="line">            x += lowbit(x);</span><br><span class="line">            <span class="comment">//System.out.println("update: x="+x);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            res += tree[x];</span><br><span class="line">            x -= lowbit(x);</span><br><span class="line">            <span class="comment">//System.out.println("query:x="+x);</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lower_bound</span><span class="params">(<span class="keyword">long</span>[] arr,<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">long</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans=-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="comment">//System.out.println("["+l+","+r+"]");</span></span><br><span class="line">            <span class="comment">//System.out.println("arr["+mid+"] = " + arr[mid] + ", x = "+x);</span></span><br><span class="line">            <span class="keyword">if</span>(arr[mid]&gt;=x)&#123;</span><br><span class="line">                ans=mid;</span><br><span class="line">                r=mid-<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(arr[l]&gt;=x)ans=l;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reversePairs</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.length;</span><br><span class="line">        BIT b = <span class="keyword">new</span> BIT(n*<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">long</span> []a = <span class="keyword">new</span> <span class="keyword">long</span>[n*<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">long</span> []arr = <span class="keyword">new</span> <span class="keyword">long</span>[n*<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;i&lt;n;i++,j+=<span class="number">2</span>)&#123;</span><br><span class="line">            a[j]=(<span class="keyword">long</span>)nums[i];</span><br><span class="line">            a[j+<span class="number">1</span>]=(<span class="keyword">long</span>)nums[i]*<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(a);</span><br><span class="line">        <span class="comment">//for(int i=0;i&lt;n*2;i++)System.out.print(a[i]+" ");</span></span><br><span class="line">        <span class="comment">//System.out.println("");</span></span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>*n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;a[i]==a[i-<span class="number">1</span>])<span class="keyword">continue</span>;</span><br><span class="line">            arr[cnt++]=a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//for(int i=0;i&lt;cnt;i++)System.out.print(arr[i]+" ");</span></span><br><span class="line">        <span class="comment">//System.out.println("");</span></span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="comment">//System.out.println("i = "+i);</span></span><br><span class="line">            <span class="keyword">int</span> id = lower_bound(arr,<span class="number">0</span>,cnt-<span class="number">1</span>,(<span class="keyword">long</span>)nums[i]*<span class="number">2</span>)+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">//System.out.println("1:arr = "+nums[i]*2 + ", id = "+id);</span></span><br><span class="line">            tmp = b.query(cnt) - b.query(id);</span><br><span class="line">            <span class="comment">//System.out.println("[1,id] = " + b.query(id));</span></span><br><span class="line">            <span class="comment">//System.out.println("cnt = "+cnt+", [1,cnt] = " + b.query(cnt));</span></span><br><span class="line">            <span class="comment">//System.out.println("tmp = "+tmp);</span></span><br><span class="line">            res = res + tmp;</span><br><span class="line">            id = lower_bound(arr,<span class="number">0</span>,cnt-<span class="number">1</span>,(<span class="keyword">long</span>)nums[i])+<span class="number">1</span>;</span><br><span class="line">            <span class="comment">//System.out.println("2:arr = "+nums[i] + ", id = "+id);</span></span><br><span class="line">            b.update(id,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>leetcode 1994<br>题意：给你一个整数数组 nums 。如果 nums 的一个子集中，所有元素的乘积可以用若干个 互不相同的质数 相乘得到，那么我们称它为 好子集 。<br>题解：由于nums[i]&lt;=30,而小于30的质数只含有{2,3,5,7,11,13,17,19,23,29}这10个。<br>于是只用状压DP即可。<br>dp[i][cur] 表示以i为结尾，当前乘积组成的质因数对应的二进制状态为cur方案数。<br>状态转移：</p>
+<script type="math/tex; mode=display">dp[i][cur] = dp[i][cur] + dp[i-1][pre] \mod mod</script><p>但是这样的复杂度是n x 1024，复杂度太大会超时。<br>所以需要我们把转移进行优化，我们注意到这n个数范围是<script type="math/tex">[1,30]</script>，是有很大的冗余的。所以我们可以先预先处理这30个数的质因数分解，过滤掉两个相同因子乘积的数，用cnt存下这些数的数量。然后新的转移方程如下：<br><strong>这里用滚动数组优化了空间</strong></p>
+<script type="math/tex; mode=display">dp[cur][j|status] = (dp[cur][j|status] + (dp[cur^1][j] * cnt[i])\mod mod) \mod mod;</script><p>然后注意边界条件的处理：<br>很容易推得，选与不选都不会收到影响。故i=1的时候可以用二项式定理推得。<br>dp[cur][0] = qpow_mod((long)2,(long)cnt[i]);</p>
+<p>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> mod = <span class="number">1000000007</span>;</span><br><span class="line">    <span class="keyword">int</span>[] tt=&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">29</span>&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">qpow_mod</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> nn)</span></span>&#123;</span><br><span class="line">        <span class="keyword">long</span> res=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(nn&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nn%<span class="number">2</span>==<span class="number">1</span>)res=res*a%mod;</span><br><span class="line">            nn&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">            a=(a*a)%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)(res%mod);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">String <span class="title">DebugOutput</span><span class="params">(<span class="keyword">int</span> now,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        String ans=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>((now&amp;(<span class="number">1</span>&lt;&lt;i))!=<span class="number">0</span>)ans=ans+<span class="string">"1"</span>;</span><br><span class="line">            <span class="keyword">else</span> ans=ans+<span class="string">"0"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numberOfGoodSubsets</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span>[][] dp = <span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">2</span>][<span class="number">1</span>&lt;&lt;<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span>[] pstatus = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">31</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">30</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">boolean</span> flag=<span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">int</span> status = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">10</span>&amp;&amp;tt[j]&lt;=i;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i%tt[j]==<span class="number">0</span>)&#123;</span><br><span class="line">                    status = status|(<span class="number">1</span>&lt;&lt;j);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(i%(tt[j]*tt[j])==<span class="number">0</span>)&#123;</span><br><span class="line">                    flag=<span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(flag)pstatus[i]=-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> pstatus[i]=status;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span>[] cnt = <span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">31</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num:nums)cnt[num]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">30</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> status = pstatus[i];</span><br><span class="line">            <span class="keyword">int</span> cur=i%<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">1</span>)&#123;</span><br><span class="line">                dp[cur][<span class="number">0</span>] = qpow_mod((<span class="keyword">long</span>)<span class="number">2</span>,(<span class="keyword">long</span>)cnt[i]);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;<span class="number">10</span>);j++)dp[cur][j] = dp[cur^<span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;<span class="number">10</span>);j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(status!=-<span class="number">1</span>&amp;&amp;(j&amp;status)==<span class="number">0</span>&amp;&amp;dp[cur^<span class="number">1</span>][j]!=<span class="number">0</span>&amp;&amp;cnt[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">                    dp[cur][j|status] = (dp[cur][j|status] + (dp[cur^<span class="number">1</span>][j] * cnt[i])%mod) % mod;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;<span class="number">10</span>);i++)&#123;</span><br><span class="line">            ans = (ans + dp[<span class="number">30</span>%<span class="number">2</span>][i])%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>leetcode 1044<br>题意：给出一个字符串 S，考虑其所有重复子串（S 的连续子串，出现两次或多次，可能会有重叠）。</p>
+<p>返回任何具有最长可能长度的重复子串。（如果 S 不含重复子串，那么答案为 “”。）</p>
+<p>题解：hash裸题，这个答案很明显具有单调性，于是二分答案，hash check即可。这里双modhash套合并hash</p>
+<p>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hash</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] h1,h2;</span><br><span class="line">    <span class="keyword">int</span>[] b1,b2;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">long</span> mod1 = <span class="number">1000000007</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">long</span> mod2 = <span class="number">1000000009</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">long</span> base1 = <span class="number">23</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">long</span> base2 = <span class="number">37</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Hash</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = str.length();</span><br><span class="line">        h1 = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        h2 = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        b1 = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        b2 = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        b1[<span class="number">0</span>]=b2[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> bb1 = <span class="number">1</span>, bb2 = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">             bb1 = (bb1 * base1) % mod1;</span><br><span class="line">             bb2 = (bb2 * base2) % mod2;</span><br><span class="line">             b1[i] = (<span class="keyword">int</span>)bb1;</span><br><span class="line">             b2[i] = (<span class="keyword">int</span>)bb2;</span><br><span class="line">        &#125;</span><br><span class="line">        h1[<span class="number">0</span>] = h2[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">long</span> hh1 = <span class="number">0</span>, hh2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            hh1 = (hh1 * base1 % mod1 + str.charAt(i-<span class="number">1</span>) - <span class="string">'a'</span>)%mod1;</span><br><span class="line">            hh2 = (hh2 * base2 % mod2 + str.charAt(i-<span class="number">1</span>) - <span class="string">'a'</span>)%mod2;</span><br><span class="line">            h1[i] = (<span class="keyword">int</span>)hh1;</span><br><span class="line">            h2[i] = (<span class="keyword">int</span>)hh2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">gethash1</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ((<span class="keyword">long</span>)h1[r] - </span><br><span class="line">            (<span class="keyword">long</span>)h1[l-<span class="number">1</span>] * b1[r-l+<span class="number">1</span>] % mod1 + mod1)%mod1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">gethash2</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ((<span class="keyword">long</span>)h2[r] - </span><br><span class="line">            (<span class="keyword">long</span>)h2[l-<span class="number">1</span>] * b2[r-l+<span class="number">1</span>] % mod2 + mod2)%mod2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">check</span><span class="params">(<span class="keyword">int</span> mid,String str,Hash hash)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=str.length();</span><br><span class="line">        HashSet&lt;Long&gt; hash1 = <span class="keyword">new</span> HashSet&lt;Long&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+mid-<span class="number">1</span>&lt;n;i++)&#123;</span><br><span class="line">            Long hh1 = hash.gethash1(i+<span class="number">1</span>, i+mid);</span><br><span class="line">            Long hh2 = hash.gethash2(i+<span class="number">1</span>, i+mid);</span><br><span class="line">            Long hh = (hh1 &lt;&lt; <span class="number">32</span>) + hh2;</span><br><span class="line">            <span class="keyword">if</span>(hash1.contains(hh))&#123;</span><br><span class="line">                <span class="keyword">return</span> str.substring(i, i+mid);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> hash1.add(hh);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestDupSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Hash hash = <span class="keyword">new</span> Hash(s);</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">1</span>,r=s.length();</span><br><span class="line">        String ans=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            String tmp = check(mid, s, hash);</span><br><span class="line">            <span class="comment">//System.out.println("[" + l + ", " + r +"]");</span></span><br><span class="line">            <span class="comment">//System.out.println("mid = " + mid);</span></span><br><span class="line">            <span class="keyword">if</span>(tmp.length() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">//System.out.println("ans = " + tmp);</span></span><br><span class="line">                ans = tmp;</span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        String tmp = check(l, s, hash);</span><br><span class="line">        <span class="comment">//System.out.println("ans = " + tmp);</span></span><br><span class="line">        <span class="keyword">if</span>(tmp.length() &gt; <span class="number">0</span>)ans=tmp;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>leetcoe 1453<br>题意：<br>墙壁上挂着一个圆形的飞镖靶。现在请你蒙着眼睛向靶上投掷飞镖。<br>投掷到墙上的飞镖用二维平面上的点坐标数组表示。飞镖靶的半径为 r 。<br>请返回能够落在 任意 半径为 r 的圆形靶内或靶上的最大飞镖数。<br>题解：<br>贪心，这样半径的圆至少刚好三个点在圆上。<br>朴素做法：<br>$O(n^4)$，枚举三个点，然后暴力check。<br>注意到我们其实是知道半径了，相当于问题多了一个已知条件。所以我们可以减少一个自由度，即省去枚举最后一个点。枚举两个点，利用圆的性质确定圆心。然后暴力check。<br>复杂度$O(n^3)$<br>code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span>[][] points, <span class="keyword">double</span> x, <span class="keyword">double</span> y,<span class="keyword">double</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] point:points)&#123;</span><br><span class="line">            <span class="keyword">double</span> dist = Math.sqrt((<span class="keyword">double</span>)(point[<span class="number">0</span>]-x)*(point[<span class="number">0</span>]-x) + (<span class="keyword">double</span>)(point[<span class="number">1</span>]-y)*(point[<span class="number">1</span>]-y));</span><br><span class="line">            <span class="keyword">if</span>(dist &lt;= r)ans++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//System.out.println("");</span></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numPoints</span><span class="params">(<span class="keyword">int</span>[][] points, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = points.length;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">double</span> xx = (<span class="keyword">double</span>)points[j][<span class="number">0</span>] - (<span class="keyword">double</span>)points[i][<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">double</span> yy = (<span class="keyword">double</span>)points[j][<span class="number">1</span>] - (<span class="keyword">double</span>)points[i][<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">double</span> midx = ((<span class="keyword">double</span>)points[j][<span class="number">0</span>] + (<span class="keyword">double</span>)points[i][<span class="number">0</span>]) / <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">double</span> midy = ((<span class="keyword">double</span>)points[j][<span class="number">1</span>] + (<span class="keyword">double</span>)points[i][<span class="number">1</span>]) / <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">double</span> tt = Math.sqrt(xx*xx + yy*yy);</span><br><span class="line">                <span class="keyword">if</span>(tt &lt; <span class="number">1e-3</span>)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">double</span> xx1 = -yy/tt, yy1 = xx/tt;</span><br><span class="line">                <span class="keyword">double</span> dist = Math.sqrt((<span class="keyword">double</span>)(r*r) - (tt/<span class="number">2</span>)*(tt/<span class="number">2</span>));</span><br><span class="line">                <span class="keyword">double</span> Rx = midx + dist * xx1;</span><br><span class="line">                <span class="keyword">double</span> Ry = midy + dist * yy1;</span><br><span class="line">                <span class="keyword">int</span> tmp = check(points, Rx, Ry, (<span class="keyword">double</span>)r);</span><br><span class="line">                ans = Math.max(ans,tmp);</span><br><span class="line">                tmp = check(points, midx - dist * xx1, midy - dist * yy1, (<span class="keyword">double</span>)r);</span><br><span class="line">                ans = Math.max(ans,tmp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans==<span class="number">0</span>?<span class="number">1</span>:ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java-leetcode/" rel="tag"># Java leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/31/leetcode-4/" rel="next" title="leetcode-4">
+                <i class="fa fa-chevron-left"></i> leetcode-4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/usename6.jpg" alt="usename6">
+            
+              <p class="site-author-name" itemprop="name">usename6</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">usename6</span> <br>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'jU5UdMSQrXVD7Sr8GKoT4QK1-gzGzoHsz',
+        appKey: 'FIrs0HPc0el5iHx0OIGF3pxV',
+        placeholder: '大佬们轻喷',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+<!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
